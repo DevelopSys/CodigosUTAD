@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">T1Inicio</string>
+    <string name="app_name1">Hola</string>
+    <string name="app_name2">Inicio</string>
+    <string name="app_name3">Aplicación</string>
+    <string name="saludo">Primera aplicacion de Android</string>
+</resources>

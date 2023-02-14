@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="margin_inferior">40dp</dimen>
+    <dimen name="padding_pantalla">20dp</dimen>
+</resources>

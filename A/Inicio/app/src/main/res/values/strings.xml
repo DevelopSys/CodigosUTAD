@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Inicio</string>
+    <string name="saludo">Primera aplicacion Android</string>
+    <string name="pulsacion">Pulsa aqui!!!</string>
+</resources>
