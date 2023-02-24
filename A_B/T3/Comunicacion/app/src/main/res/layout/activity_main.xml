@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="20dp"
+    android:gravity="center"
+    tools:context=".MainActivity">
+
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="20dp"
+        android:layout_marginBottom="40dp"
+        >
+        <ImageView
+            android:layout_width="300dp"
+            android:layout_height="300dp"
+            android:layout_gravity="center"
+            android:src="@drawable/login"
+
+            />
+    </androidx.cardview.widget.CardView>
+
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="introduce tu nombre"
+        android:id="@+id/edit_nombre"
+        android:drawableLeft="@android:drawable/ic_dialog_info"
+        android:drawablePadding="16dp"
+        android:inputType="text"
+        android:layout_marginBottom="16dp"
+        />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="introduce contraseña"
+        android:id="@+id/edit_pass"
+        android:drawableLeft="@android:drawable/ic_lock_lock"
+        android:drawablePadding="16dp"
+        android:layout_marginBottom="16dp"
+        android:inputType="textPassword"
+        />
+
+    <CheckBox
+        android:checked="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Recordar contrasañe"
+        android:layout_gravity="end"
+        android:id="@+id/check_contrasenia"
+        android:layout_marginBottom="40dp"
+        />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Login"
+        android:id="@+id/boton_login"
+        />
+</LinearLayout>
