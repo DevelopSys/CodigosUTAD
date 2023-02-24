@@ -5,6 +5,7 @@ import android.app.Notification.Action
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import com.example.t3comunicacion.databinding.ActivityMainBinding
 import com.google.android.material.snackbar.Snackbar
 
@@ -33,7 +34,7 @@ class MainActivity : AppCompatActivity() {
 
                     // hay que pasar datos?
                     if (binding.chekDatos.isChecked){
-
+                        Log.v("prueba_comunicacion",binding.chekDatos.isChecked.toString())
                         val bundle = Bundle()
                         bundle.putString("user",binding.editNombre.text.toString())
                         bundle.putString("pass",binding.editPass.text.toString())
