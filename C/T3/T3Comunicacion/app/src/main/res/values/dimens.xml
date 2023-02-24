@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="padding_screen">20dp</dimen>
+    <dimen name="margin_bottom_form">60dp</dimen>
+    <dimen name="margin_form_element">32dp</dimen>
+
+</resources>
