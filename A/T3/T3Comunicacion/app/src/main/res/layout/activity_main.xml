@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity"
+    android:gravity="center"
+    android:padding="@dimen/padding_screen">
+
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_marginBottom="@dimen/margin_bottom_element"
+        app:cardCornerRadius="30dp"
+        app:cardElevation="50dp"
+        >
+
+        <ImageView
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:src="@drawable/log_back"
+            android:scaleType="fitXY"
+            />
+
+    </androidx.cardview.widget.CardView>
+
+
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Introduce tu nombre"
+        android:drawableLeft="@drawable/user_1"
+        android:drawablePadding="10dp"
+        android:layout_marginBottom="@dimen/margin_bottom_element_form"
+        android:id="@+id/edit_nombre"
+        />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Introduce tu contraseña"
+        android:drawableLeft="@drawable/pass_1"
+        android:drawablePadding="10dp"
+        android:inputType="textPassword"
+        android:layout_marginBottom="@dimen/margin_bottom_element_form"
+        android:id="@+id/edit_pass"
+        />
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Deseas pasar datos"
+        android:layout_gravity="end"
+        android:layout_marginBottom="@dimen/margin_bottom_element"
+        android:id="@+id/chek_datos"
+        />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <Button
+            android:layout_width="0dp"
+            android:layout_weight="0.5"
+            android:layout_height="wrap_content"
+            android:text="Login in"
+            android:layout_marginRight="@dimen/margin_bottom_element_form"
+            android:id="@+id/boton_login"
+            />
+        <Button
+            android:layout_width="0dp"
+            android:layout_weight="0.5"
+            android:layout_height="wrap_content"
+            android:text="Register"
+            android:backgroundTint="@android:color/holo_orange_light"
+            />
+    </LinearLayout>
+
+
+
+
+</LinearLayout>
