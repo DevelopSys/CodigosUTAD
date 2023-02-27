@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">T4Elementos</string>
+    <string-array name="opciones">
+        <item>Opcion 1 R</item>
+        <item>Opcion 2 R</item>
+        <item>Opcion 3 R</item>
+        <item>Opcion 4 R</item>
+    </string-array>
+</resources>

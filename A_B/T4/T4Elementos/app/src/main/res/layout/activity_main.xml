@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity"
+    android:padding="16dp"
+    >
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Elementos"
+                android:textSize="30sp"
+                android:layout_gravity="center"
+                android:layout_marginBottom="20dp"
+                />
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Comprobar"
+                android:id="@+id/boton_cmoprobar"
+                />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                >
+
+                <ToggleButton
+                    android:layout_width="48dp"
+                    android:layout_height="36dp"
+                    android:textOn=""
+                    android:textOff=""
+                    android:checked="true"
+                    android:id="@+id/toggle"
+                    android:background="@drawable/fondo_toggle"
+                    />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="end|center"
+                    tools:text = "Repuesta"
+                    android:id="@+id/texto_toggle"
+                    />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                >
+
+                <CheckBox
+                    android:layout_width="48dp"
+                    android:layout_height="36dp"
+                    android:checked="false"
+                    android:id="@+id/check"
+                    />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="end|center"
+                    tools:text = "Repuesta"
+                    android:id="@+id/texto_check"
+                    />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RadioGroup
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:id="@+id/grupo_radios"
+                    >
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Opcion 1"
+                        android:id="@+id/radio_uno"
+                        />
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Opcion 2"
+                        android:id="@+id/radio_dos"
+                        />
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Opcion 3"
+                        android:id="@+id/radio_tres"
+                        />
+
+                </RadioGroup>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    tools:text="Repuesta"
+                    android:gravity="end|center"
+                    android:id="@+id/texto_radio"
+                    />
+            </LinearLayout>
+            <Spinner
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/spinner"
+                />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
+
+
+</LinearLayout>
