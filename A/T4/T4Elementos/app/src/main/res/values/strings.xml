@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">T4Elementos</string>
+    <string-array name="opciones_spinner">
+        <item>Opcion spinner 1</item>
+        <item>Opcion spinner 2</item>
+        <item>Opcion spinner 3</item>
+        <item>Opcion spinner 4</item>
+    </string-array>
+</resources>
