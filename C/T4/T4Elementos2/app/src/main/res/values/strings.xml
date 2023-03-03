@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">T4Elementos</string>
+    <string-array name="opciones_spinner">
+        <item>Opcion 1</item>
+        <item>Opcion 2</item>
+        <item>Opcion 3</item>
+        <item>Opcion 4</item>
+    </string-array>
+
+    <string-array name="opciones_spinner_dos">
+        <item>Opcion 11</item>
+        <item>Opcion 22</item>
+        <item>Opcion 33</item>
+        <item>Opcion 44</item>
+    </string-array>
+</resources>
