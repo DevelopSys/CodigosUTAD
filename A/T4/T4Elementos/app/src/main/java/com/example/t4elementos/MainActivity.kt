@@ -3,6 +3,9 @@ package com.example.t4elementos
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.View
+import android.widget.AdapterView
+import android.widget.AdapterView.OnItemSelectedListener
 import android.widget.ArrayAdapter
 import android.widget.CompoundButton
 import android.widget.CompoundButton.OnCheckedChangeListener
@@ -51,7 +54,6 @@ class MainActivity : AppCompatActivity(), OnCheckedChangeListener {
         binding.toggle.setOnCheckedChangeListener(this)
         binding.checkbox.setOnCheckedChangeListener(this)
         binding.switchSelect.setOnCheckedChangeListener(this)
-
         binding.grupoRadios.setOnCheckedChangeListener { _, i ->
             val radioSeleccionado: RadioButton = findViewById(i)
             Log.v("comprobaciones", radioSeleccionado.text.toString())
@@ -60,6 +62,15 @@ class MainActivity : AppCompatActivity(), OnCheckedChangeListener {
                 binding.radioDos.id -> {}
                 binding.radioTres.id -> {}
             }
+        }
+        binding.spinner.onItemSelectedListener = object : OnItemSelectedListener{
+            override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
+                p0!!.adapter.getItem(p2)
+            }
+
+            override fun onNothingSelected(p0: AdapterView<*>?) {
+            }
+
         }
     }
 
