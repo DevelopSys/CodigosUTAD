@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">T6Recycler</string>
+    <string-array name="generos">
+        <item>Todos</item>
+        <item>Mundo abierto</item>
+        <item>Plataformas</item>
+        <item>Fútbol</item>
+        <item>Coches</item>
+        <item>Terror</item>
+    </string-array>
+</resources>
