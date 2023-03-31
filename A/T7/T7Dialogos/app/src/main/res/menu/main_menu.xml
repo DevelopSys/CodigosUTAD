@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item android:title="Opcion 1"
+        android:id="@+id/opcion1"
+
+        />
+    <item android:title="Opcion 2"
+        android:id="@+id/opcion2"
+        android:icon="@drawable/share"
+        app:showAsAction="ifRoom"
+        />
+    <item android:title="Opcion 3"
+        android:id="@+id/opcion3"
+        android:icon="@android:drawable/btn_star"
+        app:showAsAction="ifRoom"
+        />
+
+    <item android:title="submenu">
+        <menu>
+            <item android:title="submwnu1.1"/>
+            <item android:title="submwnu1.2"/>
+            <item android:title="submwnu1.3"/>
+        </menu>
+    </item>
+
+</menu>

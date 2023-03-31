@@ -2,6 +2,8 @@ package com.example.t7dialogos
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import android.view.View.OnClickListener
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -40,10 +42,33 @@ class MainActivity : AppCompatActivity(), OnClickListener, DialogoPerso.OnDialog
             }
             binding.botonAyuda.id ->{
                 // lanzar un dialogo
-                val dialogoAyuda = DialogoAyuda()
+                //val dialogoAyuda = DialogoAyuda()
+                val dialogoAyuda = DialogoAyuda.newInstance("Borja")
                 dialogoAyuda.show(supportFragmentManager,null)
             }
         }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.main_menu,menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+
+        when(item.itemId){
+            R.id.opcion1 ->{
+
+            }
+            R.id.opcion2 ->{
+
+            }
+            R.id.opcion3 ->{
+
+            }
+        }
+
+        return true
     }
 
     override fun onDatoAdd(nombre: String, responsable: String, presupuesto: Int) {
