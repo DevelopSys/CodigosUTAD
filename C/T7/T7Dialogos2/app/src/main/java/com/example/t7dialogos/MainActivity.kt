@@ -2,6 +2,8 @@ package com.example.t7dialogos
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import android.view.View.OnClickListener
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -17,296 +19,6 @@ class MainActivity : AppCompatActivity(), OnClickListener, DialogoProyecto.OnDia
     private lateinit var adaptadorProyecto: AdaptadorProyecto
 
     override fun onCreate(savedInstanceState: Bundle?) {
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -331,7 +43,9 @@ class MainActivity : AppCompatActivity(), OnClickListener, DialogoProyecto.OnDia
            }
            binding.botonAyuda.id ->{
                // lanzar un dialogo preconstruido
-               DialogoAyuda().show(supportFragmentManager,null)
+
+               //DialogoAyuda().show(supportFragmentManager,null)
+               DialogoAyuda.newInstance("Ejemplo",10).show(supportFragmentManager,null)
            }
        }
     }
@@ -341,4 +55,26 @@ class MainActivity : AppCompatActivity(), OnClickListener, DialogoProyecto.OnDia
         adaptadorProyecto.addProyecto(nombre,responsable, presupuesto)
 
     }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.main_menu,menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+
+        when(item.itemId){
+            R.id.opcion1->{
+                DialogoProyecto().show(supportFragmentManager,"")
+            }
+            R.id.opcion2->{
+                DialogoAyuda.newInstance("Menus").show(supportFragmentManager,"")
+            }
+            R.id.opcion3->{}
+        }
+
+        return true
+    }
+
+
 }

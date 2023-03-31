@@ -7,8 +7,7 @@
     tools:context=".MainActivity"
     android:padding="8dp"
     >
-
-
+    
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline"
         android:layout_width="wrap_content"
