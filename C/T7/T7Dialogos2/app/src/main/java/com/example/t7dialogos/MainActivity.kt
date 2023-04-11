@@ -47,6 +47,8 @@ class MainActivity : AppCompatActivity(), OnClickListener, DialogoProyecto.OnDia
                //DialogoAyuda().show(supportFragmentManager,null)
                DialogoAyuda.newInstance("Ejemplo",10).show(supportFragmentManager,null)
            }
+
+           typ
        }
     }
 
@@ -72,6 +74,8 @@ class MainActivity : AppCompatActivity(), OnClickListener, DialogoProyecto.OnDia
             }
             R.id.opcion3->{}
         }
+
+        
 
         return true
     }
