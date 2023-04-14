@@ -8,35 +8,19 @@ import android.util.Log
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.DialogFragment
 
-class DialogoAyuda : DialogFragment() {
+class DialogoDefecto : DialogFragment() {
 
 
-    private lateinit var nombre: String ;
 
     override fun onAttach(context: Context) {
-        super.onAttach(context)
-        this.nombre = arguments?.getString("nombre") ?: "defecto"
+
     }
-
-    companion object {
-        // todo lo declarado aqui es éstatico
-        fun newInstance(nombre: String): DialogoAyuda {
-            val dialogo = DialogoAyuda()
-            val bundle = Bundle();
-            bundle.putString("nombre",nombre)
-            dialogo.arguments = bundle
-            return dialogo;
-        }
-    }
-
-
-
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
 
         val builder = AlertDialog.Builder(requireContext())
         // titulo
-        builder.setTitle("Diálogo ayuda $nombre")
+        builder.setTitle("Diálogo ayuda")
         // mensaje ó items
         builder.setMessage("Este es un diálogo de ayuda de la aplicación de dispositivos móviles")
 

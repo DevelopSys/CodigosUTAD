@@ -5,30 +5,10 @@
     <item android:title="Opcion 1"
         android:id="@+id/opcion1"
         android:icon="@android:drawable/ic_dialog_email"
-        app:showAsAction="ifRoom"
         />
     <item android:title="Opcion 2"
         android:id="@+id/opcion2"
         android:icon="@android:drawable/ic_dialog_info"
         app:showAsAction="ifRoom"
         />
-    <item android:title="Opcion 3"
-        android:id="@+id/opcion3"
-        android:icon="@android:drawable/ic_dialog_map"
-        app:showAsAction="ifRoom"
-        />
-
-    <item android:title="Submenu">
-
-        <menu>
-            <item android:title="submenu 1.1"/>
-            <item android:title="submenu 1.2"/>
-            <item android:title="submenu 1.3"/>
-        </menu>
-
-    </item>
-
-
-
-
 </menu>

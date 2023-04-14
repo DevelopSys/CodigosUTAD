@@ -15,6 +15,13 @@ import kotlin.concurrent.fixedRateTimer
 
 class MainActivity : AppCompatActivity(), OnClickListener, DialogoProyecto.OnDialogoProyectoListener {
 
+    override fun onProyectoAdd(nombre: String, responsable: String, presupuesto: Int) {
+        // llevar los datos a la lista (recycler)
+        adaptadorProyecto.addProyecto(nombre,responsable, presupuesto)
+
+    }
+
+
     private lateinit var binding: ActivityMainBinding
     private lateinit var adaptadorProyecto: AdaptadorProyecto
 
@@ -45,18 +52,15 @@ class MainActivity : AppCompatActivity(), OnClickListener, DialogoProyecto.OnDia
                // lanzar un dialogo preconstruido
 
                //DialogoAyuda().show(supportFragmentManager,null)
+
                DialogoAyuda.newInstance("Ejemplo",10).show(supportFragmentManager,null)
+
            }
 
-           typ
+
        }
     }
 
-    override fun onProyectoAdd(nombre: String, responsable: String, presupuesto: Int) {
-        // llevar los datos a la lista (recycler)
-        adaptadorProyecto.addProyecto(nombre,responsable, presupuesto)
-
-    }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.main_menu,menu)
@@ -72,11 +76,7 @@ class MainActivity : AppCompatActivity(), OnClickListener, DialogoProyecto.OnDia
             R.id.opcion2->{
                 DialogoAyuda.newInstance("Menus").show(supportFragmentManager,"")
             }
-            R.id.opcion3->{}
         }
-
-        
-
         return true
     }
 
