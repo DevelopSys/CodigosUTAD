@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "265878761709",
+    "firebase_url": "https://utadbmh-default-rtdb.firebaseio.com",
+    "project_id": "utadbmh",
+    "storage_bucket": "utadbmh.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:265878761709:android:824a803adf7c4cbaec5ce4",
+        "android_client_info": {
+          "package_name": "com.example.t12firebase"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "265878761709-dg04up18063o9t65set02u97irk7cm3k.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBeiLAeBOPGQ2WIaqA7M2Lp2-uihbnR3Bg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "265878761709-dg04up18063o9t65set02u97irk7cm3k.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
