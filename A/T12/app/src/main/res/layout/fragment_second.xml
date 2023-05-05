@@ -1,35 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="40dp"
     tools:context=".SecondFragment">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.2" />
+
+
+    <EditText
+        android:id="@+id/edit_nombre"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:padding="16dp">
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline"
+        android:hint="Nombre del producto"
+        />
 
-        <Button
-            android:id="@+id/button_second"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/previous"
-            app:layout_constraintBottom_toTopOf="@id/textview_second"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+    <EditText
+        android:id="@+id/edit_descripcion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="descripcion del producto"
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toEndOf="@+id/edit_nombre"
+        app:layout_constraintStart_toStartOf="@+id/edit_nombre"
+        app:layout_constraintTop_toBottomOf="@+id/edit_nombre" />
 
-        <TextView
-            android:id="@+id/textview_second"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="@string/lorem_ipsum"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/button_second" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
-</androidx.core.widget.NestedScrollView>
+    <EditText
+        android:id="@+id/edit_precio"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="precio del producto"
+        android:layout_marginTop="20dp"
+        android:inputType="number"
+        app:layout_constraintEnd_toEndOf="@+id/edit_descripcion"
+        app:layout_constraintStart_toStartOf="@+id/edit_descripcion"
+        app:layout_constraintTop_toBottomOf="@+id/edit_descripcion" />
+
+    <Spinner
+        android:id="@+id/spinner_stock"
+        android:entries="@array/stock"
+        android:layout_width="0dp"
+        android:layout_marginTop="20dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="@+id/edit_precio"
+        app:layout_constraintStart_toStartOf="@+id/edit_precio"
+        app:layout_constraintTop_toBottomOf="@+id/edit_precio" />
+
+    <Button
+        android:text="Agregar producto"
+        android:id="@+id/boton_add"
+        android:layout_marginTop="20dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="@+id/spinner_stock"
+        app:layout_constraintStart_toStartOf="@+id/spinner_stock"
+        app:layout_constraintTop_toBottomOf="@+id/spinner_stock" />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

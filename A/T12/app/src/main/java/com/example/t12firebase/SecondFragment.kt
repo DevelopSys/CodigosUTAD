@@ -29,6 +29,16 @@ class SecondFragment : Fragment() {
         super.onAttach(context)
         database = FirebaseDatabase.getInstance("https://utadbmh-default-rtdb.firebaseio.com/")
         userUid = arguments?.getString("uid") ?: "no id"
+
+        // agregar un formulario con los siguientes campos:
+
+        // Edit: Nombre producto
+        // Edit: Descripcion del producto
+        // Edit: Precio del producto (numeros)
+        // Spinner:  (1-10) PAra el stock del producto - Adaptador sencillos
+        // Boton: llevará a bd el producto de los edit
+
+        // Clase PRODUCTO
     }
 
     override fun onCreateView(
@@ -44,13 +54,13 @@ class SecondFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.buttonSecond.setOnClickListener {
+        //binding.buttonSecond.setOnClickListener {
 
-            database.getReference("usuario").child(userUid).child("nombre").setValue("bmartinh2")
-            database.getReference("usuario").child(userUid).child("create").setValue(1231231)
+            //database.getReference("usuario").child(userUid).child("nombre").setValue("bmartinh2")
+            //database.getReference("usuario").child(userUid).child("create").setValue(1231231)
             //findNavController().navigate(R.id.action_SecondFragment_to_FirstFragment)
             //Snackbar.make(binding.root,"El uid es ${userUid}", Snackbar.LENGTH_SHORT).show()
-        }
+        //}
     }
 
     override fun onDestroyView() {
