@@ -67,6 +67,28 @@
         app:layout_constraintStart_toStartOf="@+id/spinner_stock"
         app:layout_constraintTop_toBottomOf="@+id/spinner_stock" />
 
+    <Button
+        android:text="Vender producto"
+        android:id="@+id/boton_vender"
+        android:layout_marginTop="20dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="@+id/spinner_stock"
+        app:layout_constraintStart_toStartOf="@+id/spinner_stock"
+        app:layout_constraintTop_toBottomOf="@+id/boton_add" />
+
+    <Button
+        android:text="Consultar producto"
+        android:id="@+id/boton_consultar"
+        android:layout_marginTop="20dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="@+id/spinner_stock"
+        app:layout_constraintStart_toStartOf="@+id/spinner_stock"
+        app:layout_constraintTop_toBottomOf="@+id/boton_vender" />
+
+
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

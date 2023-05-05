@@ -28,5 +28,12 @@
             android:name="uid"
             app:argType="string"
             android:defaultValue='"no uid"' />
+        <action
+            android:id="@+id/action_SecondFragment_to_listFragment"
+            app:destination="@id/listFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/listFragment"
+        android:name="com.example.t12firebase.ListFragment"
+        android:label="ListFragment" />
 </navigation>

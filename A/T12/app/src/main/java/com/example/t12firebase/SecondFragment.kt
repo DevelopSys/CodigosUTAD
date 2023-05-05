@@ -2,14 +2,20 @@ package com.example.t12firebase
 
 import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.example.t12firebase.databinding.FragmentSecondBinding
+import com.example.t12firebase.model.Producto
 import com.google.android.material.snackbar.Snackbar
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 
 /**
  * A simple [Fragment] subclass as the second destination in the navigation.
@@ -24,21 +30,12 @@ class SecondFragment : Fragment() {
 
     private lateinit var userUid: String
     private lateinit var database: FirebaseDatabase
+    private var contadorProductos = 0;
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
         database = FirebaseDatabase.getInstance("https://utadbmh-default-rtdb.firebaseio.com/")
         userUid = arguments?.getString("uid") ?: "no id"
-
-        // agregar un formulario con los siguientes campos:
-
-        // Edit: Nombre producto
-        // Edit: Descripcion del producto
-        // Edit: Precio del producto (numeros)
-        // Spinner:  (1-10) PAra el stock del producto - Adaptador sencillos
-        // Boton: llevará a bd el producto de los edit
-
-        // Clase PRODUCTO
     }
 
     override fun onCreateView(
@@ -54,17 +51,71 @@ class SecondFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        //binding.buttonSecond.setOnClickListener {
+        binding.botonAdd.setOnClickListener {
 
-            //database.getReference("usuario").child(userUid).child("nombre").setValue("bmartinh2")
-            //database.getReference("usuario").child(userUid).child("create").setValue(1231231)
-            //findNavController().navigate(R.id.action_SecondFragment_to_FirstFragment)
-            //Snackbar.make(binding.root,"El uid es ${userUid}", Snackbar.LENGTH_SHORT).show()
-        //}
+            var referenciaProducto = database.reference.child("usuarios").child(userUid)
+                .child("productos").child(binding.editNombre.text.toString())
+
+            // Database
+            referenciaProducto.setValue(
+                Producto(
+                    binding.editNombre.text.toString(), binding.editDescripcion.text.toString(),
+                    binding.editPrecio.text.toString().toInt(),
+                    binding.spinnerStock.selectedItem.toString().toInt()
+                )
+            )
+            /*referenciaProducto
+                .child("nombre").setValue(binding.editNombre.text.toString())
+
+            referenciaProducto
+                .child("descripcion").setValue(binding.editDescripcion.text.toString())
+
+            referenciaProducto
+                .child("precio").setValue(binding.editPrecio.text.toString())
+
+            referenciaProducto
+                .child("stock").setValue(binding.spinnerStock.selectedItem)*/
+
+            contadorProductos++;
+        }
+        binding.botonVender.setOnClickListener {
+            var referencia: DatabaseReference = database.reference.child("usuarios")
+                .child(userUid).child("productos")
+                .child(binding.editNombre.text.toString())
+                .child("stock")
+            referencia.setValue(0)
+        }
+        binding.botonConsultar.setOnClickListener {ç
+
+
+            database.reference.child("usuarios").child(userUid)
+                .child("productos").valu
+
+            findNavController().navigate(R.id.action_SecondFragment_to_listFragment)
+
+            /*var referenciaProducto = database.reference.child("usuarios").child(userUid)
+                .child("productos")
+            referenciaProducto.addValueEventListener(object : ValueEventListener {
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    for (data in snapshot.children) {
+
+                        var producto = data.getValue(Producto::class.java)
+                        Log.v("firebase_nodos", producto?.nombre.toString())
+                    }
+                }
+
+                override fun onCancelled(error: DatabaseError) {
+                    TODO("Not yet implemented")
+                }
+
+            })*/
+        }
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
     }
+
+
 }
