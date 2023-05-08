@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="30dp"
+    tools:context=".SecondFragment">
+
+
+    <EditText
+        android:id="@+id/edit_nombre"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Introduce nombre"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline"/>
+
+    <EditText
+        android:layout_marginTop="20dp"
+        android:id="@+id/edit_precio"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Introduce precio"
+        app:layout_constraintEnd_toEndOf="@+id/edit_descripcion"
+        app:layout_constraintStart_toStartOf="@+id/edit_descripcion"
+        app:layout_constraintTop_toBottomOf="@+id/edit_descripcion" />
+
+    <EditText
+        android:layout_marginTop="20dp"
+        android:id="@+id/edit_descripcion"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Introduce descripcion"
+        app:layout_constraintEnd_toEndOf="@+id/edit_nombre"
+        app:layout_constraintStart_toStartOf="@+id/edit_nombre"
+        app:layout_constraintTop_toBottomOf="@+id/edit_nombre" />
+
+    <Button
+        android:layout_marginTop="40dp"
+        android:id="@+id/boton_add"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Agregar"
+        app:layout_constraintEnd_toEndOf="@+id/spinner_stock"
+        app:layout_constraintStart_toStartOf="@+id/spinner_stock"
+        app:layout_constraintTop_toBottomOf="@+id/spinner_stock"/>
+
+    <Button
+        android:layout_marginTop="20dp"
+        android:id="@+id/boton_vender"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Vender"
+        app:layout_constraintEnd_toEndOf="@+id/spinner_stock"
+        app:layout_constraintStart_toStartOf="@+id/spinner_stock"
+        app:layout_constraintTop_toBottomOf="@+id/boton_add"/>
+
+    <Button
+        android:layout_marginTop="20dp"
+        android:id="@+id/boton_consultar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Consultar"
+        app:layout_constraintEnd_toEndOf="@+id/spinner_stock"
+        app:layout_constraintStart_toStartOf="@+id/spinner_stock"
+        app:layout_constraintTop_toBottomOf="@+id/boton_vender"/>
+
+    <Spinner
+        android:entries="@array/array_stock"
+        android:layout_marginTop="20dp"
+        android:id="@+id/spinner_stock"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="@+id/edit_precio"
+        app:layout_constraintStart_toStartOf="@+id/edit_precio"
+        app:layout_constraintTop_toBottomOf="@+id/edit_precio" />
+
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.2" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
