@@ -37,30 +37,6 @@ class MainActivity : AppCompatActivity() {
         appBarConfiguration = AppBarConfiguration(navController.graph)
         setupActionBarWithNavController(navController, appBarConfiguration)
 
-        binding.fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                .setAnchorView(R.id.fab)
-                .setAction("Action", null).show()
-        }
-
-        //val url = "https://www.thesportsdb.com/api/v1/json/3/all_leagues.php"
-        val url = "https://randomuser.me/api/?results=5"
-        var peticion: JsonObjectRequest =
-            JsonObjectRequest(Method.GET, url,null, {
-                /*val arrayLigas: JSONArray = it.getJSONArray("leagues")
-                val liga = arrayLigas.getJSONObject(0)
-                Log.v("respuesta", liga.getString("strLeague"))*/
-                val arrayUsuarios: JSONArray = it.getJSONArray("results")
-                val usuario = arrayUsuarios.getJSONObject(0);
-                val nombre = usuario.getJSONObject("name")
-                Log.v("respuesta", "${nombre.getString("first")} ${nombre.getString("last")}")
-
-            }, {
-                Log.v("respuesta", "Error en la peticion")
-            })
-
-        Volley.newRequestQueue(applicationContext).add(peticion)
-
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
