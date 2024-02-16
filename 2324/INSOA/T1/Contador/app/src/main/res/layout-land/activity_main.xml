@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="0dp"
+        android:layout_weight="0.5"
+        android:layout_height="match_parent">
+
+        <Button
+            android:id="@+id/botonIncremento"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.3"
+            android:text="@string/simbolosuma"
+            android:textSize="@dimen/texto_grande" />
+
+        <Button
+            android:id="@+id/botonDecremento"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.3"
+            android:text="@string/simboloresta"
+            android:textSize="@dimen/texto_grande" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.3"
+            android:text="R"
+            android:textSize="@dimen/texto_grande"
+            android:id="@+id/botonReset"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_weight="0.5"
+        android:orientation="horizontal"
+        android:layout_height="match_parent">
+        <TextView
+            android:id="@+id/textoContador"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+
+            android:gravity="center"
+            android:text="0"
+            android:textSize="@dimen/texto_grande" />
+
+    </LinearLayout>
+
+</LinearLayout>

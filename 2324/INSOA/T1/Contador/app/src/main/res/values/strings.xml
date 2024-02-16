@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Contador</string>
+    <string name="simbolosuma">+</string>
+    <string name="simboloresta">-</string>
+</resources>
