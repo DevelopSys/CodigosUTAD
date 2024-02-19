@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="0dp"
+        android:layout_weight="0.5"
+        android:layout_height="match_parent">
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.33"
+            android:textSize="50sp"
+            android:text="+"
+            android:id="@+id/botonIncremento"
+            />
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.33"
+            android:textSize="50sp"
+            android:text="-"
+            android:id="@+id/botonDecremento"
+            />
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.33"
+            android:textSize="50sp"
+            android:text="R"
+            android:id="@+id/botonReset"
+            />
+
+
+    </LinearLayout>
+   <LinearLayout
+       android:orientation="vertical"
+       android:layout_width="0dp"
+       android:layout_weight="0.5"
+       android:layout_height="match_parent">
+
+       <TextView
+           android:layout_width="match_parent"
+           android:layout_height="0dp"
+           android:layout_weight="0.5"
+           android:textSize="70sp"
+           android:text="0"
+           android:gravity="center"
+           android:id="@+id/textoContador"
+           />
+
+       <EditText
+
+           android:layout_width="match_parent"
+           android:layout_height="0dp"
+           android:layout_weight="0.5"
+           android:textSize="30sp"
+            android:hint="introduce valor de reseteo"
+           android:gravity="center"
+           android:id="@+id/editReset"
+           />
+
+
+   </LinearLayout>
+
+</LinearLayout>
