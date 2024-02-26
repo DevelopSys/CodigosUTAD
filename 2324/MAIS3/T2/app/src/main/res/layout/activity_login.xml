@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="32dp"
+    tools:context=".LoginActivity">
+
+    <ImageView
+        android:scaleType="centerCrop"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:src="@drawable/login"
+        />
+
+    <EditText
+        android:layout_marginTop="64dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="introduce nombre"
+        android:inputType="text"
+        android:drawableLeft="@drawable/user"
+        android:gravity="center"
+        android:id="@+id/editUser"
+        />
+
+    <EditText
+        android:layout_marginTop="12dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="introduce contraseña"
+        android:inputType="textPassword"
+        android:drawableLeft="@drawable/pass"
+        android:gravity="center"
+        android:id="@+id/editPass"
+        />
+
+    <Button
+        android:layout_marginTop="64dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Login"
+        android:id="@+id/buttonLogin"
+        />
+
+    <LinearLayout
+        android:layout_marginTop="24dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="end"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="¿Aun no tienes cuenta?"
+            android:layout_marginRight="12dp"
+
+            />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Crear"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:textColor="@color/primary"
+            android:id="@+id/buttonSignUp"
+            />
+
+    </LinearLayout>
+
+
+
+</LinearLayout>
