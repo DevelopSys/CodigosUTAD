@@ -1,5 +1,6 @@
 package com.example.comunicacion.ui
 
+import android.content.res.Configuration
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -10,7 +11,11 @@ import android.widget.AdapterView
 import android.widget.AdapterView.OnItemClickListener
 import android.widget.AdapterView.OnItemSelectedListener
 import android.widget.ArrayAdapter
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView.Orientation
 import com.example.comunicacion.R
+import com.example.comunicacion.adapters.AdaptadorModelo
 import com.example.comunicacion.data.DataSet
 import com.example.comunicacion.databinding.ActivityLoginBinding
 import com.example.comunicacion.databinding.ActivityMainBinding
@@ -20,6 +25,7 @@ import com.google.android.material.snackbar.Snackbar
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
+    private lateinit var adaptadorModelo: AdaptadorModelo
     private lateinit var nombre: String
     private lateinit var adapterSpinner: ArrayAdapter<Marca>
 
@@ -27,26 +33,17 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        // crea la parte de datos del spinner
-        adapterSpinner = ArrayAdapter(
-            applicationContext,
-            android.R.layout.simple_spinner_item,
-            DataSet.getAllMarcas()
-        )
-        // junta parte grafica con parte logica
-        binding.spinnerSeleccion.adapter = adapterSpinner;
-        // muestra el desplegable de forma visible
-        adapterSpinner.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
 
-        // cada vez que cambia la seleccion del spinner, que salga un Snackbar con el nombre de la
-        // marca
+        instacias()
+        persoAdaptadores()
 
         this.nombre = intent.getStringExtra("correo")!!
         binding.textoSaludo.text = nombre
+        acciones()
 
-        // arraylist con todas las marcas
+    }
 
-
+    fun acciones() {
         binding.spinnerSeleccion.onItemSelectedListener = object : OnItemSelectedListener {
             override fun onItemSelected(
                 parent: AdapterView<*>?,
@@ -55,8 +52,11 @@ class MainActivity : AppCompatActivity() {
                 id: Long
             ) {
 
-                val selecccion : Marca = parent!!.adapter.getItem(position) as Marca
-                binding.imagenMarca.setImageResource(selecccion.imagen)
+                val selecccion: Marca = parent!!.adapter.getItem(position) as Marca
+
+                // filtrar la lista -> DATASET OK
+                // cambiar la lista -> ADAPTADOR
+                adaptadorModelo.cambiarLista(DataSet.getAllModelos(selecccion.nombre))
 
 
                 Snackbar.make(
@@ -72,6 +72,42 @@ class MainActivity : AppCompatActivity() {
 
         }
     }
+
+    fun instacias() {
+        // crea la parte de datos del spinner
+        adapterSpinner = ArrayAdapter(
+            applicationContext,
+            android.R.layout.simple_spinner_item,
+            DataSet.getAllMarcas()
+        )
+        adaptadorModelo = AdaptadorModelo(DataSet.getAllModelos("Mercedes"), this)
+    }
+
+
+    fun persoAdaptadores() {
+        // junta parte grafica con parte logica
+        binding.spinnerSeleccion.adapter = adapterSpinner;
+        // muestra el desplegable de forma visible
+        adapterSpinner.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+
+        binding.recyclerModelos.adapter = adaptadorModelo
+        binding.recyclerModelos.layoutManager =
+            LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
+
+        if (resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE){
+            binding.recyclerModelos.layoutManager =
+                GridLayoutManager(this, 2)
+        }
+
+        //GridLayoutManager(this,2)
+
+        //LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
+    }
+
 }
+
+/*
+* Clase Modelo: marca (s), modelo (s), cv (int), precio (d), imagen (int)
+* */
 
 
