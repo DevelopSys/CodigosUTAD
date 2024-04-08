@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Comunicacion</string>
+    <string name="nombre">Nombre</string>
+    <string name="calidad">Calidad</string>
+    <string-array name="perfiles">
+        <item>Administrador</item>
+        <item>Usuario</item>
+        <item>Invitado</item>
+    </string-array>
+</resources>
