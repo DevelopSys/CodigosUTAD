@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "253030966832",
+    "project_id": "bmh-utad23242",
+    "storage_bucket": "bmh-utad23242.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:253030966832:android:db450e07ded9749e76aff5",
+        "android_client_info": {
+          "package_name": "com.example.comunicacion"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDmEAQCYTkLZnzSOIKxoriBdJLDRKqRNHw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

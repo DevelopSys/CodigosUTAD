@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".MainActivity">
-
     <Button
         android:id="@+id/botonIncremento"
         android:layout_width="match_parent"
@@ -31,6 +30,5 @@
         android:gravity="center"
         android:text="0"
         android:textSize="@dimen/texto_grande" />
-
 
 </LinearLayout>
