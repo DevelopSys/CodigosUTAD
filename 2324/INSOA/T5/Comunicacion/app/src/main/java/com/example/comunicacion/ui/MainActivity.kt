@@ -4,6 +4,8 @@ import android.content.res.Configuration
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import android.view.View.OnClickListener
 import android.widget.AbsSpinner
@@ -27,25 +29,46 @@ import com.example.comunicacion.databinding.ActivityMainBinding
 import com.example.comunicacion.model.Marca
 import com.example.comunicacion.model.Producto
 import com.google.android.material.snackbar.Snackbar
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
 import com.google.gson.Gson
 import org.json.JSONArray
 import org.json.JSONObject
 
 class MainActivity : AppCompatActivity() {
 
+    // 1- al iniciar sesion un usuario se tiene que escribir en la base de datos
+    // usuarios
+    // uid 123123AXASDA
+    // correo: borja@utad.com
+    // 2- al crear un usuario se tiene que escribir en la base de datos
+    // usuarios
+    // uid 123123dsaasd
+    // correo: borjaras
+    // nombre:asdasdasd
+    // genero: asdasdasd
+    // perfil: asdasdasdasd
+
     private lateinit var binding: ActivityMainBinding
+
     //private lateinit var adaptadorModelo: AdaptadorModelo
     private lateinit var adaptadorProducto: AdaptadorProducto;
+    private lateinit var firebaseDatabase: FirebaseDatabase
     private lateinit var uidCurrentUser: String
     private lateinit var nombre: String
     private lateinit var adapterSpinner: ArrayAdapter<Marca>
+    private lateinit var databaseReference: DatabaseReference
+
+    // referencia -> nodo sobre el cual me puedo colocar y trabajar de ahi en adelante
+    // child -> todos los nodos. Si hago referencia a un nodo que no existe, se crea automaticamente
+    // value -> dato asociado a un nodo. Si el nodo existe y se le da un valor nuevo -> update
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        instacias()
+        instancias()
         persoAdaptadores()
         peticionJSON()
 
@@ -63,7 +86,8 @@ class MainActivity : AppCompatActivity() {
             val productos: JSONArray = it.getJSONArray("products")
             for (i in 0..<productos.length()) {
                 val producto: JSONObject = productos.getJSONObject(i)
-                val productoOBJ: Producto = Gson().fromJson(producto.toString(), Producto::class.java)
+                val productoOBJ: Producto =
+                    Gson().fromJson(producto.toString(), Producto::class.java)
                 // productoOBJ a la lista del adaptador
                 adaptadorProducto.addProducto(productoOBJ)
                 /*val id = producto.getInt("id")
@@ -113,7 +137,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    fun instacias() {
+    fun instancias() {
         // crea la parte de datos del spinner
         adapterSpinner = ArrayAdapter(
             applicationContext,
@@ -122,6 +146,8 @@ class MainActivity : AppCompatActivity() {
         )
         //adaptadorModelo = AdaptadorModelo(DataSet.getAllModelos("Mercedes"), this)
         adaptadorProducto = AdaptadorProducto(this)
+        firebaseDatabase =
+            FirebaseDatabase.getInstance("https://bmh-utad2024-default-rtdb.europe-west1.firebasedatabase.app/")
     }
 
 
@@ -143,6 +169,33 @@ class MainActivity : AppCompatActivity() {
         //GridLayoutManager(this,2)
 
         //LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.main_menu, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+
+        when (item.itemId) {
+            R.id.menu_add_nodo -> {
+                databaseReference = firebaseDatabase.reference.child("usuarios").child("uid")
+                databaseReference
+                    .child("usuario2").setValue("usuario1")
+            }
+
+            R.id.menu_del_nodo -> {
+                firebaseDatabase.reference.child("usuarios")
+                    .child("usuario2").setValue(null)
+            }
+
+            R.id.menu_get_nodo -> {
+
+            }
+        }
+
+        return true
     }
 
 }

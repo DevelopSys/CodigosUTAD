@@ -3,8 +3,10 @@ package com.example.comunicacion.ui
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
 import android.view.View
 import android.view.View.OnClickListener
+import com.example.comunicacion.R
 import com.example.comunicacion.databinding.ActivityLoginBinding
 import com.example.comunicacion.model.Usuario
 import com.google.android.material.snackbar.Snackbar
@@ -102,6 +104,14 @@ class LoginActivity : AppCompatActivity(), OnClickListener {
                 startActivity(intent)
                 finish()
             }
+
         }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+
+        menuInflater.inflate(R.menu.help_menu,menu)
+
+        return true
     }
 }

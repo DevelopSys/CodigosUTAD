@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item android:title="Agregar nodo"
+        android:id="@+id/menu_add_nodo"
+        android:icon="@android:drawable/ic_input_add"
+        app:showAsAction="ifRoom"
+        />
+
+    <item android:title="Eliminar nodo"
+        android:id="@+id/menu_del_nodo"/>
+
+    <item android:title="Consultar nodo"
+        android:id="@+id/menu_get_nodo"/>
+
+<!--    <item android:title="Submenu">
+
+        <menu>
+            <item android:title="Subitem"/>
+        </menu>
+
+    </item>-->
+
+</menu>
