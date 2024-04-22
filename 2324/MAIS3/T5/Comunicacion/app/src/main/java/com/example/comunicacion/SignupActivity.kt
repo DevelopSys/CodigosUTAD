@@ -8,11 +8,13 @@ import com.example.comunicacion.databinding.ActivitySignupBinding
 import com.example.comunicacion.model.Usuario
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.FirebaseDatabase
 
 class SignupActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivitySignupBinding
     private lateinit var authFirebase: FirebaseAuth
+    private lateinit var firebaseDatabase: FirebaseDatabase
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -48,6 +50,30 @@ class SignupActivity : AppCompatActivity() {
                 authFirebase.createUserWithEmailAndPassword(usuario.correo, usuario.pass)
                     .addOnCompleteListener {
                         if (it.isSuccessful) {
+
+
+                            firebaseDatabase.reference.child("usuarios")
+                                .child(authFirebase.currentUser!!.uid)
+                                .setValue(usuario)
+                            /*val referencia = firebaseDatabase.reference.child("usuarios")
+                                .child(authFirebase.currentUser!!.uid)
+
+                           referencia
+                                .child("nombre").setValue(usuario.nombre)
+
+                            firebaseDatabase.reference.child("usuarios")
+                                .child(authFirebase.currentUser!!.uid)
+                                .child("correo").setValue(usuario.correo)
+
+                            firebaseDatabase.reference.child("usuarios")
+                                .child(authFirebase.currentUser!!.uid)
+                                .child("perfil").setValue(usuario.perfil)
+
+                            firebaseDatabase.reference.child("usuarios")
+                                .child(authFirebase.currentUser!!.uid)
+                                .child("genero").setValue(usuario.genero)
+*/
+
                             val intent: Intent = Intent(this, LoginActivity::class.java)
                             intent.putExtra("usuario", usuario)
                             startActivity(intent)
@@ -71,6 +97,8 @@ class SignupActivity : AppCompatActivity() {
     }
 
     private fun instancias() {
+        firebaseDatabase =
+            FirebaseDatabase.getInstance("https://bah-utad23241-default-rtdb.europe-west1.firebasedatabase.app/")
         authFirebase = FirebaseAuth.getInstance()
     }
 }

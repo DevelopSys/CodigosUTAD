@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.ContactsContract.Data
 import android.util.Log
+import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import android.view.View.OnClickListener
 import android.widget.AdapterView
@@ -22,10 +24,13 @@ import com.example.comunicacion.model.Marca
 import com.example.comunicacion.model.Modelo
 import com.example.comunicacion.model.Producto
 import com.google.android.material.snackbar.Snackbar
+import com.google.firebase.database.FirebaseDatabase
 import com.google.gson.Gson
 import org.json.JSONArray
 
 class MainActivity : AppCompatActivity() {
+
+    private lateinit var firebaseDatabase: FirebaseDatabase
     private lateinit var binding: ActivityMainBinding
     private lateinit var adaptadoProducto: ProductosAdapter
     private lateinit var adaptadorMarcas: ArrayAdapter<Marca>
@@ -74,22 +79,25 @@ class MainActivity : AppCompatActivity() {
 
         // crear la peticion
         val url = "https://dummyjson.com/products"
-        val peticion: JsonObjectRequest = JsonObjectRequest(url,{
+        val peticion: JsonObjectRequest = JsonObjectRequest(url, {
             // clase PRODUCTO (nombre, id, precio, descripcion, imagen, categoria)
             val productos: JSONArray = it.getJSONArray("products")
-            for (i in 0..productos.length()-1){
+            for (i in 0..productos.length() - 1) {
                 val productoJSON = productos.getJSONObject(i)
-                var producto = Gson().fromJson(productoJSON.toString(),Producto::class.java)
+                var producto = Gson().fromJson(productoJSON.toString(), Producto::class.java)
                 adaptadoProducto.addProducto(producto)
             }
 
-        },{
+        }, {
 
         })
         // lanzar la peticion
         Volley.newRequestQueue(applicationContext).add(peticion)
     }
-    fun instancias(){
+
+    fun instancias() {
+        firebaseDatabase =
+            FirebaseDatabase.getInstance("https://bah-utad23241-default-rtdb.europe-west1.firebasedatabase.app/")
         adaptadoProducto = ProductosAdapter(this)
         adaptadorMarcas = ArrayAdapter(
             applicationContext,
@@ -98,15 +106,54 @@ class MainActivity : AppCompatActivity() {
         )
 
     }
-    fun personalizarRecycler(){
+
+    fun personalizarRecycler() {
         binding.recyclerModelos.adapter = adaptadoProducto
         binding.recyclerModelos.layoutManager =
             LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
 
     }
-    fun personalizarSpinner(){
+
+    fun personalizarSpinner() {
         adaptadorMarcas.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         binding.spinnerMarca.adapter = adaptadorMarcas
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        // menuRes(int) -> lo que quiero inflar
+        // menu: Menu -> donde lo quiero inflar
+        menuInflater.inflate(R.menu.main_menu, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.menu_add_nodo -> {
+                // capturar la bd y crear el camino
+                // usuarios
+                // usuario1
+                //nombre: borja
+                firebaseDatabase.reference.child("usuarios")
+                    .child("usuario1")
+                    .child("nombre")
+                    .setValue("Borja")
+            }
+
+            R.id.menu_del_nodo -> {
+                firebaseDatabase.reference.child("usuarios")
+                    .child("usuario1")
+                    .child("nombre")
+                    .setValue(null)
+            }
+            R.id.menu_update_nodo -> {
+                firebaseDatabase.reference.child("usuarios")
+                    .child("usuario1")
+                    .child("nombre")
+                    .setValue("valor diferente")
+            }
+        }
+
+        return true
     }
 
 
@@ -114,3 +161,11 @@ class MainActivity : AppCompatActivity() {
 
 // crear un objeto llamado marca el cual tiene
 // nombre, calidad e imagen
+
+// al registrar un usuario, en la base de datos tiene que quedar constancia de todos sus datos
+// usuarios
+     // UID
+        // nombre:
+        // correo:
+        // genero:
+        // perfil:
