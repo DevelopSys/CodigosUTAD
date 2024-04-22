@@ -8,11 +8,13 @@ import com.example.comunicacion.databinding.ActivitySignupBinding
 import com.example.comunicacion.model.Usuario
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.FirebaseDatabase
 
 class SignupActivity : AppCompatActivity() {
 
     private lateinit var authFirebase: FirebaseAuth
     private lateinit var binding: ActivitySignupBinding
+    private lateinit var firebaseDatabase: FirebaseDatabase
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivitySignupBinding.inflate(layoutInflater)
@@ -42,16 +44,33 @@ class SignupActivity : AppCompatActivity() {
                 val intent: Intent = Intent(applicationContext, LoginActivity::class.java)
                 val usuario: Usuario =
                     Usuario(
-                        binding.editNombre.text.toString(),
-                        binding.editCorreo.text.toString(),
-                        binding.editPass.text.toString(),
-                        perfil,
-                        radioSeleccionado.text.toString()
+                        nombre = binding.editNombre.text.toString(),
+                        correo = binding.editCorreo.text.toString(),
+                        perfil = perfil,
+                        genero = radioSeleccionado.text.toString()
                     )
 
-                authFirebase.createUserWithEmailAndPassword(usuario.correo, usuario.pass)
+                authFirebase.createUserWithEmailAndPassword(
+                    usuario.correo!!,
+                    binding.editPass.text.toString()
+                )
                     .addOnCompleteListener {
                         if (it.isSuccessful) {
+
+
+                            // usuarios
+                            // UID
+                            //nombre:asdasd
+                            // genero: asdasd
+
+                            firebaseDatabase.reference.child("usuarios")
+                                .child(authFirebase.currentUser!!.uid)
+                                .setValue(usuario)
+                            /*referencia.child("nombre").setValue(usuario.nombre)
+                            referencia.child("correo").setValue(usuario.correo)
+                            referencia.child("genero").setValue(usuario.genero)
+                            referencia.child("perfil").setValue(usuario.perfil)*/
+
                             intent.putExtra("usuario", usuario)
                             // intent.putExtra("uid", authFirebase.currentUser!!.uid)
                             startActivity(intent)
@@ -76,6 +95,8 @@ class SignupActivity : AppCompatActivity() {
     }
 
     private fun instancias() {
+        firebaseDatabase =
+            FirebaseDatabase.getInstance("https://bmh-utad23242-default-rtdb.europe-west1.firebasedatabase.app/");
         authFirebase = FirebaseAuth.getInstance()
     }
 }
