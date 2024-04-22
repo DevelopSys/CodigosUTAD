@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.ContactsContract.Data
 import android.util.Log
+import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import android.view.View.OnClickListener
 import android.widget.AdapterView
@@ -24,6 +26,7 @@ import com.example.comunicacion.model.Marca
 import com.example.comunicacion.model.Modelo
 import com.example.comunicacion.model.Producto
 import com.google.android.material.snackbar.Snackbar
+import com.google.firebase.database.FirebaseDatabase
 import com.google.gson.Gson
 import org.json.JSONArray
 
@@ -34,6 +37,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var adaptadorCategorias: ArrayAdapter<String>
     private lateinit var adaptadorProducto: AdaptadorProducto
     private lateinit var listaCategorias: ArrayList<String>
+    private lateinit var firebaseDatabase: FirebaseDatabase
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -148,6 +152,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun instancias() {
+        firebaseDatabase =
+            FirebaseDatabase.getInstance("https://bmh-utad23242-default-rtdb.europe-west1.firebasedatabase.app/")
         listaCategorias = ArrayList()
         adaptadorProducto = AdaptadorProducto(this);
         adaptadorCategorias = ArrayAdapter(
@@ -155,5 +161,39 @@ class MainActivity : AppCompatActivity() {
         )
     }
 
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        // menuRes (int) -> el elemento que quiero poner R.menu.asdasd
+        // menu (Menu)-> donde lo quieres poner
 
+        menuInflater.inflate(R.menu.main_menu, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+
+        // itemId
+        when (item.itemId) {
+            R.id.menu_add_nodo -> {
+                firebaseDatabase.reference.child("usuario")
+                    .child("nombre")
+                    .setValue("Borja")
+            }
+
+            R.id.menu_del_nodo -> {
+                firebaseDatabase.reference.child("usuario").setValue(null)
+            }
+
+            R.id.menu_update_nodo -> {
+                firebaseDatabase.reference.child("usuario")
+                    .child("nombre")
+                    .setValue("BorjaModificado")
+            }
+        }
+
+        return true
+    }
 }
+
+// cada vez que se registe un usuario se tiene que quedar
+// asociada toda su informacion
+// (sin la pass) en la base de datos
