@@ -8,6 +8,8 @@
         app:showAsAction="ifRoom"
         />
 
+
+    <!-- -->
     <item android:title="Eliminar nodo"
         android:id="@+id/menu_del_nodo"/>
 

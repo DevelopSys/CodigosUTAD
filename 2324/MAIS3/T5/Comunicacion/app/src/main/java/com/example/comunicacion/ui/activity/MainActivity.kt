@@ -23,8 +23,13 @@ import com.example.comunicacion.databinding.ActivityMainBinding
 import com.example.comunicacion.model.Marca
 import com.example.comunicacion.model.Modelo
 import com.example.comunicacion.model.Producto
+import com.example.comunicacion.model.Usuario
 import com.google.android.material.snackbar.Snackbar
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 import com.google.gson.Gson
 import org.json.JSONArray
 
@@ -35,6 +40,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var adaptadoProducto: ProductosAdapter
     private lateinit var adaptadorMarcas: ArrayAdapter<Marca>
     private lateinit var correo: String
+    private lateinit var uid: String
 
     private var perfil: Char? = null
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -47,6 +53,7 @@ class MainActivity : AppCompatActivity() {
         realizarPeticionJSON()
 
         correo = intent.getStringExtra("correo")!!
+        uid = intent.getStringExtra("uid")!!
         perfil = intent.getStringExtra("perfil")!!.get(0)
         binding.textoSaludo.setText("Bienvenido $correo")
         binding.textoPerfil.setText("$perfil")
@@ -145,11 +152,47 @@ class MainActivity : AppCompatActivity() {
                     .child("nombre")
                     .setValue(null)
             }
+
             R.id.menu_update_nodo -> {
                 firebaseDatabase.reference.child("usuarios")
                     .child("usuario1")
                     .child("nombre")
                     .setValue("valor diferente")
+            }
+
+            R.id.menu_get -> {
+                firebaseDatabase.reference.child("productos")
+                    .child("products")
+                    .addValueEventListener(object : ValueEventListener {
+                        override fun onDataChange(snapshot: DataSnapshot) {
+                            val productos: Iterable<DataSnapshot> = snapshot.children;
+                            productos.forEach {
+                                Log.v("datos", it.value.toString())
+                                //val nombre: String = it.value.child("nombre").value.toString();
+                            }
+
+                        }
+
+                        override fun onCancelled(error: DatabaseError) {
+
+                        }
+
+                    })
+                /*firebaseDatabase.reference.child("usuarios")
+                    //.child(uid)
+                    .child(FirebaseAuth.getInstance().currentUser!!.uid)
+                    .addValueEventListener( object : ValueEventListener{
+                        override fun onDataChange(snapshot: DataSnapshot) {
+                            // cuando un dato de la ruta cambie
+                            //val usuario: Usuario = Gson().fromJson(snapshot.value.toString(), Usuario::class.java)
+                            Log.v("datos",snapshot.value.toString())
+                        }
+
+                        override fun onCancelled(error: DatabaseError) {
+                            // la peticion se cancele por el usuario
+                        }
+
+                    })*/
             }
         }
 
@@ -164,8 +207,8 @@ class MainActivity : AppCompatActivity() {
 
 // al registrar un usuario, en la base de datos tiene que quedar constancia de todos sus datos
 // usuarios
-     // UID
-        // nombre:
-        // correo:
-        // genero:
-        // perfil:
+// UID
+// nombre:
+// correo:
+// genero:
+// perfil:

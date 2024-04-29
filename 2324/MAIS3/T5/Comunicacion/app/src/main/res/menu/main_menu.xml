@@ -13,6 +13,8 @@
     <item android:title="@string/menu_borrar_nodo"
             android:id="@+id/menu_del_nodo"
             />
+    <item android:title="Consultar nodo"
+            android:id="@+id/menu_get"/>
 
     <item android:title="Submenu">
 

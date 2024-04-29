@@ -28,9 +28,14 @@ import com.example.comunicacion.databinding.ActivityLoginBinding
 import com.example.comunicacion.databinding.ActivityMainBinding
 import com.example.comunicacion.model.Marca
 import com.example.comunicacion.model.Producto
+import com.example.comunicacion.model.Usuario
 import com.google.android.material.snackbar.Snackbar
+import com.google.firebase.database.ChildEventListener
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 import com.google.gson.Gson
 import org.json.JSONArray
 import org.json.JSONObject
@@ -69,6 +74,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         instancias()
+        peticionFirebase()
         persoAdaptadores()
         peticionJSON()
 
@@ -76,6 +82,41 @@ class MainActivity : AppCompatActivity() {
         this.uidCurrentUser = intent.getStringExtra("uid")!!
         binding.textoSaludo.text = nombre
         acciones()
+
+    }
+
+    private fun peticionFirebase() {
+
+        firebaseDatabase.reference.child("productos")
+            .child("products")
+            .addValueEventListener(object : ValueEventListener{
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    snapshot.children.forEach {
+                        it.child("title").value
+                        it.child("price").value
+                        it.child("descrition").value
+                        it.child("thumbnail").value
+                        it.child("category").value
+                        // val producto: Producto = Gson().fromJson(it.value.toString(), Producto::class.java)
+                        // Log.v("datos",it.value.toString())
+                        // Log.v("datos",producto.title.toString())
+                        /*val datos: Iterable<DataSnapshot> = it.children
+                        datos.forEach {
+                             Log.v("datos",it.value.toString())
+                        }*/
+
+                    }
+                }
+
+                override fun onCancelled(error: DatabaseError) {
+
+                }
+
+            })
+        // 1-  consultar a la base datos los productos y pintarlos en el RecyclerView
+
+        // 2- Cambiarle el precio a cualquier producto de la base de datos ¿?¿?¿?¿?
+
 
     }
 
@@ -191,7 +232,37 @@ class MainActivity : AppCompatActivity() {
             }
 
             R.id.menu_get_nodo -> {
+                // obtener informacion sobre el nodo con UUID EMQ2zlGUt8VMITrTDToBfOIdWuy2
+                firebaseDatabase.reference.child("usuarios")
+                    //.child("sDaBw4hL7Nci678DffHVMU5KzVH2")
+                    .addValueEventListener(object : ValueEventListener {
+                        override fun onDataChange(snapshot: DataSnapshot) {
+                            //Log.v("datos", snapshot.value.toString())
+                            val iterable: Iterable<DataSnapshot> = snapshot.children
+                            iterable.forEach {
+                                // it.value.toString() -> {nombre: Borja, genero: Masculino, perfil: Administrador, correo:borja@utad.com}
+                                val usuario: Usuario =
+                                    Gson().fromJson(it.value.toString(), Usuario::class.java)
+                                Log.v("datos", usuario.nombre.toString())
+                            }
 
+                        }
+
+                        override fun onCancelled(error: DatabaseError) {
+
+                        }
+
+                    })
+                /*.addListenerForSingleValueEvent(object : ValueEventListener{
+                    override fun onDataChange(snapshot: DataSnapshot) {
+                        // snapshot es estado actual del nodo por el que pregunto
+                        Log.v("datos", snapshot.value.toString())
+                    }
+
+                    override fun onCancelled(error: DatabaseError) {
+
+                    }
+                })*/
             }
         }
 
