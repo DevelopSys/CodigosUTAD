@@ -14,6 +14,10 @@
     <item android:title="Actualizar nodo"
         android:id="@+id/menu_update_nodo"/>
 
+    <item android:title="Obtener nodo"
+        android:id="@+id/menu_get_nodo"
+        />
+
     <item android:title="Mas acciones">
 
         <menu>

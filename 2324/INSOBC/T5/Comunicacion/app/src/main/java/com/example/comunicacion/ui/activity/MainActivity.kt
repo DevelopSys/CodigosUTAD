@@ -25,8 +25,12 @@ import com.example.comunicacion.databinding.ActivityMainBinding
 import com.example.comunicacion.model.Marca
 import com.example.comunicacion.model.Modelo
 import com.example.comunicacion.model.Producto
+import com.example.comunicacion.model.Usuario
 import com.google.android.material.snackbar.Snackbar
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 import com.google.gson.Gson
 import org.json.JSONArray
 
@@ -38,6 +42,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var adaptadorProducto: AdaptadorProducto
     private lateinit var listaCategorias: ArrayList<String>
     private lateinit var firebaseDatabase: FirebaseDatabase
+    private lateinit var uid: String;
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -52,7 +57,7 @@ class MainActivity : AppCompatActivity() {
 
         val correo = intent.getStringExtra("correo")!!
         val perfil = intent.getStringExtra("perfil")!!
-
+        uid = intent.getStringExtra("uid")!!
         binding.textoSaludo.setText("Bienvenido $correo")
         binding.textoPefil.setText("$perfil")
 
@@ -187,6 +192,32 @@ class MainActivity : AppCompatActivity() {
                 firebaseDatabase.reference.child("usuario")
                     .child("nombre")
                     .setValue("BorjaModificado")
+            }
+
+            R.id.menu_get_nodo -> {
+                firebaseDatabase.reference.child("usuarios")
+                    //.child(uid)
+                    //.addListenerForSingleValueEvent(object : ValueEventListener{
+                    .addValueEventListener(object : ValueEventListener {
+                        override fun onDataChange(snapshot: DataSnapshot) {
+                            // val usuario: Usuario = Gson().fromJson(snapshot.value.toString(), Usuario::class.java)
+                            val usuarios: Iterable<DataSnapshot> = snapshot.children
+                            usuarios.forEach {
+
+                                Log.v("datos", it.key.toString())
+                                Log.v("datos", it.value.toString())
+                                Log.v("datos", it.child(it.key.toString()).child("nombre").value.toString())
+
+                            }
+
+                        }
+
+                        override fun onCancelled(error: DatabaseError) {
+                            TODO("Not yet implemented")
+                        }
+
+                    })
+
             }
         }
 
