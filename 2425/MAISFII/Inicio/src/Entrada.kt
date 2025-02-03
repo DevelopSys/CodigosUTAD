@@ -7,7 +7,7 @@
 // return 7
 // }
 fun main() {
-    /*
+
     // no mutable val nombre: Tipo = valor
     val DNI: String = "1234A"
     // mutables var edad: Tipo = valor
@@ -17,10 +17,12 @@ fun main() {
     var edad: Int = 40
     var experiencia: Boolean = true
     println("Mi nombre es $nombre, mi edad es $edad")
-    println("Mi apellido es ${apellido}")
+    println("Mi apellido es ${apellido?.length}")
     asignatura = "Desarrollo movil"
-    println("La asignatura que imparto es ${asignatura}")*/
+    println("La asignatura que imparto es ${asignatura}")
     saludar(veces = 1)
+    val usuario: Usuario = Usuario("Borja", "correo","1234A")
+    usuario.mostrarDatos()
 
 }
 
