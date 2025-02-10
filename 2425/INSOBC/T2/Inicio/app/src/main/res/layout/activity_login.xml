@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="48dp"
-    tools:context=".MainActivity">
+    >
 
 
     <!---->
@@ -67,7 +67,6 @@
 
 
     <Button
-        android:enabled="false"
         android:layout_marginStart="5dp"
         android:id="@+id/btnLogin"
         android:layout_width="0dp"
