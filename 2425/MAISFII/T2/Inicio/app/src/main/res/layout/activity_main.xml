@@ -9,10 +9,11 @@
     tools:context=".MainActivity">
 
     <ImageView
+        android:scaleType="centerCrop"
         android:id="@+id/imgLogin"
         android:layout_width="250dp"
         android:layout_height="250dp"
-        android:src="@mipmap/ic_launcher"
+        android:src="@drawable/fondo"
         app:layout_constraintBottom_toTopOf="@+id/guideline"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -65,6 +66,7 @@
 
 
     <Button
+        android:enabled="false"
         android:id="@+id/btnLogin"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
