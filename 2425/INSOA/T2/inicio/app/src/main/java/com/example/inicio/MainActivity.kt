@@ -17,23 +17,14 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        /*binding.botonSaludar.setOnClickListener {
+        binding.btnSaludar.setOnClickListener {
+            Snackbar.make(binding.root
+                ,"Enorabuena ${binding.editNombre.text.toString()}"
+                ,Snackbar.LENGTH_LONG).show()
+        }
 
-            if (binding.editNombre.text.isEmpty()) {
-                Snackbar.make(
-                    binding.root,
-                    "Por favor introduce datos",
-                    Snackbar.LENGTH_LONG
-                ).show()
-            } else {
-                Snackbar.make(
-                    binding.root,
-                    "Enhorabuena ${binding.editNombre.text.toString()}, tu primera app android completa",
-                    Snackbar.LENGTH_LONG
-                ).show()
-            }
-
-        }*/
-
+        binding.btnLimpiar.setOnClickListener {
+            binding.editNombre.text.clear()
+        }
     }
 }

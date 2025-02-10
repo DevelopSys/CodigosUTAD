@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Inicio</string>
+    <string-array name="perfiles">
+        <item>Administrador</item>
+        <item>Usuario</item>
+    </string-array>
 </resources>
