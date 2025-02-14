@@ -17,14 +17,6 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.btnSaludar.setOnClickListener {
-            Snackbar.make(binding.root
-                ,"Enorabuena ${binding.editNombre.text.toString()}"
-                ,Snackbar.LENGTH_LONG).show()
-        }
 
-        binding.btnLimpiar.setOnClickListener {
-            binding.editNombre.text.clear()
-        }
     }
 }
