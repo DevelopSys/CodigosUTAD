@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Inicio</string>
+    <string name="hint_correo">introducci correi</string>
+    <string name="hint_pass">introducci passi</string>
+    <string name="label_check">Permiti inici</string>
+    <string name="btn_login">Inici</string>
+    <string name="btn_register">Registri</string>
+    <string-array name="perfiles">
+        <item>Administradori</item>
+        <item>Usuari</item>
+    </string-array>
+</resources>

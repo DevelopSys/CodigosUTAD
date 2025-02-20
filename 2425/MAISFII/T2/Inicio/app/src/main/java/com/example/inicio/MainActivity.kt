@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.inicio.databinding.ActivityMainBinding
+import com.example.inicio.model.User
 import com.google.android.material.snackbar.Snackbar
 
 class MainActivity : AppCompatActivity() {
@@ -45,21 +46,39 @@ class MainActivity : AppCompatActivity() {
 
         binding.btnLogin.setOnClickListener {
             if (!binding.editCorreo.text.isEmpty()
-                && !binding.editPass.text.isEmpty()){
+                && !binding.editPass.text.isEmpty()
+            ) {
 
-                Log.v("datos",binding.editCorreo.text.toString())
+                /*Log.v("datos",binding.editCorreo.text.toString())
                 Log.v("datos",binding.editPass.text.toString())
                 Log.v("datos",binding.checkInicio.isChecked.toString())
-                Log.v("datos",binding.spinnerPerfil.selectedItem.toString())
+                Log.v("datos",binding.spinnerPerfil.selectedItem.toString())*/
+                val user =
+                    User(
+                        binding.editCorreo.text.toString(),
+                        binding.editPass.text.toString(),
+                        binding.spinnerPerfil.selectedItem.toString()
+                    )
 
+                val bundle: Bundle = Bundle()
+                bundle.putSerializable("user",user)
                 // cambio pantalla
                 val intent = Intent(applicationContext, SecondActivity::class.java)
+                intent.putExtra("datos",bundle)
                 startActivity(intent)
+                //finish()
 
             } else {
 
             }
         }
+    }
+
+    override fun onRestart() {
+        super.onRestart()
+        binding.editPass.text.clear()
+        binding.editCorreo.text.clear()
+        binding.checkInicio.isChecked = false
     }
 
 
