@@ -22,6 +22,7 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+
         binding.btnLogin.setOnClickListener {
             val correo = binding.editCorreo.text.toString()
             val pass = binding.editPass.text.toString()
@@ -54,5 +55,10 @@ class MainActivity : AppCompatActivity() {
         binding.editPass.text.clear()
         binding.editCorreo.text.clear()
         binding.checkBox.isChecked = false
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+
     }
 }
