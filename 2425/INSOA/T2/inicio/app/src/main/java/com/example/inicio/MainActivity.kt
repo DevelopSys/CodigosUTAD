@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.inicio.databinding.ActivityMainBinding
+import com.example.inicio.model.User
 import com.google.android.material.snackbar.Snackbar
 
 class MainActivity : AppCompatActivity() {
@@ -26,8 +27,12 @@ class MainActivity : AppCompatActivity() {
             val pass = binding.editPass.text.toString()
             val perfil = binding.spinnerPerfil.selectedItem.toString()
 
-            if (correo.equals("admin") && pass.equals("admin")){
+            if (binding.editPass.text.isNotEmpty() && binding.editPass.text.isNotEmpty()){
                 val intent: Intent = Intent(applicationContext,SecondActivity::class.java)
+                val bundle: Bundle = Bundle()
+                val usuario = User(correo,pass,perfil)
+                bundle.putSerializable("usuario",usuario)
+                intent.putExtra("datos",bundle)
                 startActivity(intent)
             } else {
                 Snackbar.make(binding.root,
@@ -42,7 +47,12 @@ class MainActivity : AppCompatActivity() {
         binding.checkBox.setOnCheckedChangeListener { _, b ->
             binding.btnLogin.isEnabled = b
         }
+    }
 
-
+    override fun onStop() {
+        super.onStop()
+        binding.editPass.text.clear()
+        binding.editCorreo.text.clear()
+        binding.checkBox.isChecked = false
     }
 }
