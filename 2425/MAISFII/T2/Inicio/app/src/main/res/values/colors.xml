@@ -3,4 +3,5 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="colorPrimary">#FFC107</color>
+    <color name="colorToolbar">#CDDC39</color>
 </resources>

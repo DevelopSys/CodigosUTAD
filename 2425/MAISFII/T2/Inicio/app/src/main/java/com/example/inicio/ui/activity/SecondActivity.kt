@@ -18,13 +18,13 @@ class SecondActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivitySecondBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        setSupportActionBar(binding.toolber)
+        setSupportActionBar(binding.toolbar)
 
         // recuperar el dato que me han pasado
         val bundleRecuperado = intent.extras?.getBundle("datos")
         // user - serializable - user
         userRecuperado = bundleRecuperado?.getSerializable("user") as User
-        binding.textoUsuario.text = "Bienvenido ${userRecuperado.getCorreo()}"
+        supportActionBar?.title = "Bienvenido ${userRecuperado.getCorreo()}"
 
     }
 
