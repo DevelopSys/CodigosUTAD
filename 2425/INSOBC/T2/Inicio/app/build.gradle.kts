@@ -6,7 +6,6 @@ plugins {
 android {
     namespace = "com.example.inicio"
     compileSdk = 35
-
     defaultConfig {
         applicationId = "com.example.inicio"
         minSdk = 24
@@ -16,7 +15,6 @@ android {
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
-
     buildTypes {
         release {
             isMinifyEnabled = false
@@ -33,11 +31,9 @@ android {
     kotlinOptions {
         jvmTarget = "11"
     }
-
     viewBinding {
         enable = true
     }
-
 }
 
 dependencies {

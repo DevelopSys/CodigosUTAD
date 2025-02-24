@@ -2,70 +2,59 @@ package com.example.inicio
 
 import android.content.Intent
 import android.os.Bundle
-import android.widget.Button
-import android.widget.CheckBox
-import android.widget.EditText
-import android.widget.Spinner
+import android.util.Log
+
+
+import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
 import com.example.inicio.databinding.ActivityMainBinding
 import com.example.inicio.model.User
-
+import com.google.android.material.snackbar.Snackbar
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
-    private lateinit var check: CheckBox;
-    private lateinit var editPass: EditText
-    private lateinit var editCorreo: EditText
-    private lateinit var spinnerPerfil: Spinner
-    private lateinit var butonLogin: Button;
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
-        // setContentView(binding.root)
-        setContentView(R.layout.activity_main)
+        setContentView(binding.root)
 
-        spinnerPerfil = findViewById(R.id.spinnerPerfil)
-        editCorreo = findViewById(R.id.editCorreo)
-        editPass = findViewById(R.id.editPass)
-        check = findViewById(R.id.checkInicio)
-        butonLogin = findViewById(R.id.btnLogin)
 
-        acciones()
+        binding.btnLogin.setOnClickListener {
+            val correo = binding.editCorreo.text.toString()
+            val pass = binding.editPass.text.toString()
+            val perfil = binding.spinnerPerfil.selectedItem.toString()
+
+            if (binding.editPass.text.isNotEmpty() && binding.editPass.text.isNotEmpty()){
+                val intent: Intent = Intent(applicationContext,SecondActivity::class.java)
+                val bundle: Bundle = Bundle()
+                val usuario = User(correo,pass,perfil)
+                bundle.putSerializable("usuario",usuario)
+                intent.putExtra("datos",bundle)
+                startActivity(intent)
+            } else {
+                Snackbar.make(binding.root,
+                    "Fallo en login",Snackbar.LENGTH_SHORT).show()
+            }
+            /*Log.v("datos",correo)
+            Log.v("datos",pass)
+            Log.v("datos",perfil)*/
+
+        }
+        binding.btnRegistro.setOnClickListener {  }
+        binding.checkBox.setOnCheckedChangeListener { _, b ->
+            binding.btnLogin.isEnabled = b
+        }
     }
 
-    override fun onRestart() {
-        super.onRestart()
-        editCorreo.text.clear()
-        editPass.text.clear()
-        check.isChecked = false
-    }
-
-    private fun acciones() {
-
-        check.setOnCheckedChangeListener { _, b ->
-            butonLogin.isEnabled = b
-        }
-
-        butonLogin.setOnClickListener {
-            // cambio de pantalla
-
-            val user = User(
-                editCorreo.text.toString(),
-                editPass.text.toString(),
-                spinnerPerfil.selectedItem.toString()
-            )
-
-            val bundle: Bundle = Bundle()
-            bundle.putSerializable("user", user)
-            bundle.putString("name", "Borja")
-
-            val intent = Intent(applicationContext, SecondActivity::class.java)
-            intent.putExtra("datos", bundle)
-
-            startActivity(intent)
-        }
+    override fun onStop() {
+        super.onStop()
+        binding.editPass.text.clear()
+        binding.editCorreo.text.clear()
+        binding.checkBox.isChecked = false
     }
 
     override fun onSaveInstanceState(outState: Bundle) {

@@ -2,19 +2,18 @@ package com.example.inicio.model
 
 import java.io.Serializable
 
-// constructores - primarios/secundarios - attr - funciones
-// val user = User()
-class User(
-    var correo: String? = null, var pass: String? = null, var perfil: String? = null
-) :
-    Serializable {
+// constructores
+    // primarios (1) -> attr obligatorios
+    // secundario (n) -> attr que no estan en el primario. Pero siempre se basa en un primario
+// metodos attr
 
-    private var direccion: String? = null
-    private var telefono: Int? = null
+class User(var nombre: String?=null, var pass: String?=null, var perfil: String?=null)
+    : Serializable {
 
-    constructor(correo: String?, pass: String?, perfil: String?, direccion: String?, telefono: Int?)
-            : this(correo, pass, perfil) {
-        this.direccion = direccion
+    private var telefono:Int?=null
+
+    constructor(n: String, p: String, pr: String, telfono: Int):this(n,p,pr){
         this.telefono = telefono
     }
+
 }

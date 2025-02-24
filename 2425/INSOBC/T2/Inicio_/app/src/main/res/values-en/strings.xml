@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Inicio</string>
+    <string name="hint_correo">enter mail</string>
+    <string name="hint_pass">enter pass</string>
+    <string name="label_check">Allow init</string>
+    <string name="btn_inicio">Init</string>
+    <string name="btn_registro">Register</string>
+    <string-array name="perfiles">
+        <item>Admin</item>
+        <item>User</item>
+    </string-array>
+</resources>

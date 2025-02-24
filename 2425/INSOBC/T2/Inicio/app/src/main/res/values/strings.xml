@@ -1,12 +1,13 @@
 <resources>
-    <string name="app_name">Inicio</string>
-    <string name="hint_correo">introduce correo</string>
+    <string name="app_name">inicio</string>
+    <string name="hint_mail">introduce tu correo</string>
     <string name="hint_pass">introduce pass</string>
-    <string name="label_check">Permitir inicio</string>
-    <string name="btn_inicio">Inicio</string>
-    <string name="btn_registro">Registro</string>
+    <string name="check_inicio">Activar inicio</string>
+    <string name="btn_registro">registro</string>
+    <string name="btn_inicio">inicio</string>
+    <string name="btn_volver">volver</string>
     <string-array name="perfiles">
-        <item>Admnistrador</item>
+        <item>Administrador</item>
         <item>Usuario</item>
     </string-array>
 </resources>

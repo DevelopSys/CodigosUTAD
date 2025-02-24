@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Inicio</string>
-    <string name="hint_correo">enter mail</string>
-    <string name="hint_pass">enter pass</string>
-    <string name="label_check">Allow init</string>
-    <string name="btn_inicio">Init</string>
-    <string name="btn_registro">Register</string>
+    <string name="app_name">inicio</string>
+    <string name="hint_mail">Enter mail</string>
+    <string name="hint_pass">Enter pass</string>
+    <string name="check_inicio">Enable</string>
+    <string name="btn_registro">SignIn</string>
+    <string name="btn_inicio">Start</string>
     <string-array name="perfiles">
         <item>Admin</item>
         <item>User</item>
     </string-array>
+    <string name="btn_volver">volver</string>
+
 </resources>
