@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item android:title="Cerrar sesión"
+        android:id="@+id/menuCerrarSesion"
+        app:showAsAction="ifRoom"
+        android:icon="@android:drawable/ic_input_delete"
+        />
+    <item android:title="Información"
+        android:id="@+id/menuInfo"
+        />
+
+    <item android:title="Opciones">
+        <menu>
+            <item android:title="Submenu1"
+                android:id="@+id/menuSub1"
+                />
+            <item android:title="Submenu2"
+                android:id="@+id/menuSub2"
+                />
+        </menu>
+    </item>
+
+</menu>

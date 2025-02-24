@@ -2,14 +2,10 @@ package com.example.inicio
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import com.example.inicio.databinding.ActivityMainBinding
 import com.example.inicio.model.User
-import com.google.android.material.snackbar.Snackbar
+import com.example.inicio.ui.activity.SecondActivity
 
 class MainActivity : AppCompatActivity() {
 
