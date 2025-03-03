@@ -25,7 +25,7 @@
             />
 
         <ImageView
-            android:id="@+id/imageView"
+            android:id="@+id/imageCard"
             android:layout_width="0dp"
             android:layout_height="200dp"
             android:scaleType="fitXY"
@@ -35,17 +35,17 @@
             app:layout_constraintTop_toBottomOf="@+id/toolbarCard" />
 
         <TextView
-            android:alpha="0.5"
-            android:padding="6dp"
-            android:background="@android:color/white"
+            android:id="@+id/textCard"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:alpha="0.5"
+            android:background="@android:color/white"
+            android:padding="6dp"
             android:text="XXXXXXXX"
             android:textSize="25sp"
-            app:layout_constraintBottom_toBottomOf="@+id/imageView"
-            app:layout_constraintEnd_toEndOf="@+id/imageView"
-            app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginBottom="12dp"/>
+            app:layout_constraintBottom_toBottomOf="@+id/imageCard"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/imageCard" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
