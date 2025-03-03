@@ -2,15 +2,12 @@ package com.example.inicio
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 
 
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import com.example.inicio.databinding.ActivityMainBinding
 import com.example.inicio.model.User
+import com.example.inicio.ui.activity.SecondActivity
 import com.google.android.material.snackbar.Snackbar
 
 class MainActivity : AppCompatActivity() {
@@ -29,7 +26,7 @@ class MainActivity : AppCompatActivity() {
             val perfil = binding.spinnerPerfil.selectedItem.toString()
 
             if (binding.editPass.text.isNotEmpty() && binding.editPass.text.isNotEmpty()){
-                val intent: Intent = Intent(applicationContext,SecondActivity::class.java)
+                val intent: Intent = Intent(applicationContext, SecondActivity::class.java)
                 val bundle: Bundle = Bundle()
                 val usuario = User(correo,pass,perfil)
                 bundle.putSerializable("usuario",usuario)

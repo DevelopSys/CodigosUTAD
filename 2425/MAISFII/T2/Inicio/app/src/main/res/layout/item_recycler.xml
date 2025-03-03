@@ -9,6 +9,7 @@
     app:cardElevation="20dp"
     android:paddingTop="6dp"
     android:paddingBottom="6dp"
+    android:id="@+id/cardContact"
     >
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -36,6 +37,7 @@
             app:layout_constraintTop_toBottomOf="@+id/toolbarCard" />
 
         <TextView
+            android:id="@+id/phoneCard"
             android:textSize="25sp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
