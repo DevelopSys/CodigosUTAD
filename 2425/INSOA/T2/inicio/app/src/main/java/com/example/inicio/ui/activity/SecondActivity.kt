@@ -4,7 +4,11 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.inicio.R
+import com.example.inicio.adapter.ProductAdapter
+import com.example.inicio.data.DataSet
 import com.example.inicio.databinding.ActivitySecondBinding
 import com.example.inicio.model.User
 import com.example.inicio.ui.dialog.InfoDialog
@@ -12,13 +16,37 @@ import com.example.inicio.ui.dialog.InfoDialog
 class SecondActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivitySecondBinding
+    // lista
+    private lateinit var adapterProductos: ProductAdapter
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivitySecondBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        instancias();
         setSupportActionBar(binding.toolber)
         obtenerDatos()
+        asociarDatosRecycler()
 
+    }
+
+    private fun asociarDatosRecycler() {
+        binding.recycler.adapter = adapterProductos
+        if (resources.configuration.orientation == 1){
+            binding.recycler.layoutManager = LinearLayoutManager(applicationContext,
+                LinearLayoutManager.VERTICAL,false)
+        } else {
+            binding.recycler.layoutManager = GridLayoutManager(applicationContext,
+                2,LinearLayoutManager.VERTICAL,false)
+        }
+
+
+        /*LinearLayoutManager(applicationContext,
+            LinearLayoutManager.VERTICAL,false)*/
+    }
+
+    private fun instancias() {
+        adapterProductos = ProductAdapter(lista = DataSet.lista, context = this)
     }
 
     private fun obtenerDatos() {

@@ -4,17 +4,19 @@ plugins {
 }
 
 android {
-    namespace = "com.example.inicio"
+    namespace = "com.example.login"
     compileSdk = 35
+
     defaultConfig {
-        applicationId = "com.example.inicio"
-        minSdk = 24
-        targetSdk = 34
+        applicationId = "com.example.login"
+        minSdk = 27
+        targetSdk = 35
         versionCode = 1
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
+
     buildTypes {
         release {
             isMinifyEnabled = false
@@ -31,6 +33,7 @@ android {
     kotlinOptions {
         jvmTarget = "11"
     }
+
     viewBinding {
         enable = true
     }
@@ -38,7 +41,6 @@ android {
 
 dependencies {
 
-    implementation (libs.glide)
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
