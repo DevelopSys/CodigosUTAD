@@ -15,8 +15,9 @@ import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.bumptech.glide.Glide
 import com.example.inicio.R
 import com.example.inicio.model.Contact
+import com.example.inicio.model.UserJSON
 
-class ConctactAdapter(var lista: List<Contact>, var context: Context) :
+class ConctactAdapter(var lista: List<UserJSON>, var context: Context) :
     RecyclerView.Adapter<ConctactAdapter.MyHolder>() {
     inner class MyHolder(itemView: View) : ViewHolder(itemView) {
         // representa el patron con la extraccion de cada uno de
@@ -25,6 +26,13 @@ class ConctactAdapter(var lista: List<Contact>, var context: Context) :
         val texto: TextView = itemView.findViewById(R.id.phoneCard)
         val toolbar: androidx.appcompat.widget.Toolbar = itemView.findViewById(R.id.toolbarCard)
         val card: CardView = itemView.findViewById(R.id.cardContact)
+
+        init {
+            toolbar.inflateMenu(R.menu.contact_menu)
+        }
+
+
+
 
         // TODO asociar un menu a cada carta
         // en este menu tenemos un item de ver detalle
@@ -50,9 +58,15 @@ class ConctactAdapter(var lista: List<Contact>, var context: Context) :
         // asociar el patron con los datos
         // ejecutado tantas veces como getItemCount
         val contact = lista[position]
-        holder.toolbar.title = contact.nombre
-        holder.texto.text = contact.telefono.toString()
-        Glide.with(context).load(contact.imagen)
+        holder.toolbar.setOnMenuItemClickListener {
+            /*when(it.itemId){
+                R.id.menuContactLlamar->{}
+            }*/
+            return@setOnMenuItemClickListener false;
+        }
+        holder.toolbar.title = contact.firstName +" "+contact.lastName
+        holder.texto.text = contact.phone.toString()
+        Glide.with(context).load(contact.image)
             .placeholder(R.drawable.base)
             .into(holder.imagen)
         holder.card.setOnClickListener {
@@ -62,5 +76,10 @@ class ConctactAdapter(var lista: List<Contact>, var context: Context) :
         }
 
 
+    }
+
+    fun addConctact(contact: UserJSON){
+        (lista as ArrayList).add(contact)
+        notifyItemInserted(lista.size-1)
     }
 }

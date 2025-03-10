@@ -27,6 +27,7 @@ class SecondActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySecondBinding
     private lateinit var userRecuperado: User
     private lateinit var adapterConctact: ConctactAdapter
+    private lateinit var listaConctacts: ArrayList<UserJSON>
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -51,12 +52,14 @@ class SecondActivity : AppCompatActivity() {
         val peticionJSON: JsonObjectRequest =
             JsonObjectRequest(url, {
                 val users: JSONArray = it.getJSONArray("users")
-                for (i in 0..users.length() - 1) {
+                for (i in 0..<users.length()) {
                     val userJSON: JSONObject = users.getJSONObject(i)
                     val user: UserJSON = gson.fromJson(userJSON.toString(),UserJSON::class.java)
+                    adapterConctact.addConctact(user)
                     Log.v("datos", "El nombre del usuario es ${user.firstName} ${user.lastName}")
                     // usuario -> Objeto
                 }
+
             }, {
                 Snackbar.make(binding.root, "Error en la peticion", Snackbar.LENGTH_SHORT).show()
             })
@@ -64,7 +67,8 @@ class SecondActivity : AppCompatActivity() {
     }
 
     private fun instancias() {
-        adapterConctact = ConctactAdapter(DataSet.lista, this)
+        listaConctacts = ArrayList()
+        adapterConctact = ConctactAdapter(listaConctacts, this)
         binding.recycler.adapter = adapterConctact
 
         if (resources.configuration.orientation == 1) {
