@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="24dp"
+    tools:context=".MainActivity">
+
+    <ImageView
+        android:id="@+id/imagenLogin"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/fondo"
+        app:layout_constraintBottom_toTopOf="@+id/guideline"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/editCorreo"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:drawableStart="@drawable/usuario"
+        android:gravity="center"
+        android:hint="@string/hint_mail"
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="@+id/imagenLogin"
+        app:layout_constraintStart_toStartOf="@+id/imagenLogin"
+        app:layout_constraintTop_toTopOf="@+id/guideline" />
+
+    <EditText
+        android:id="@+id/editPass"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:drawableStart="@drawable/pwd"
+        android:gravity="center"
+        android:hint="@string/hint_pass"
+        android:inputType="textPassword"
+        app:layout_constraintEnd_toEndOf="@+id/editCorreo"
+        app:layout_constraintStart_toStartOf="@+id/editCorreo"
+        app:layout_constraintTop_toBottomOf="@+id/editCorreo" />
+
+    <Spinner
+        android:id="@+id/spinnerPerfil"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:entries="@array/perfiles"
+        app:layout_constraintEnd_toEndOf="@+id/editPass"
+        app:layout_constraintStart_toStartOf="@+id/editPass"
+        app:layout_constraintTop_toBottomOf="@+id/editPass" />
+
+
+    <CheckBox
+        android:id="@+id/checkBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="@string/check_inicio"
+        app:layout_constraintEnd_toEndOf="@+id/spinnerPerfil"
+        app:layout_constraintTop_toBottomOf="@+id/spinnerPerfil" />
+
+
+    <Button
+        android:backgroundTint="@color/colorPrimary"
+        android:layout_marginEnd="12dp"
+        android:id="@+id/btnRegistro"
+        android:text="@string/btn_registro"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/guideline3"
+        app:layout_constraintStart_toStartOf="@+id/spinnerPerfil"
+        app:layout_constraintTop_toBottomOf="@+id/checkBox" />
+
+
+    <Button
+        android:backgroundTint="@color/colorPrimary"
+        android:layout_marginStart="12dp"
+        android:id="@+id/btnLogin"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_inicio"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/checkBox"
+        app:layout_constraintStart_toStartOf="@+id/guideline3"
+        app:layout_constraintTop_toBottomOf="@+id/checkBox" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.5" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
