@@ -27,6 +27,7 @@ class SecondActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivitySecondBinding
     private lateinit var contactAdapter: ContactAdapter
+    private lateinit var listaContacts: ArrayList<ContactJSON>
 
     // lista y contexto
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -49,9 +50,11 @@ class SecondActivity : AppCompatActivity() {
                 val userJSON: JSONObject = users.getJSONObject(i)
                 // ContactJSON -> Object
                 val contact: ContactJSON = gson.fromJson(userJSON.toString(), ContactJSON::class.java)
+                //listaContacts.add(contact)
+                contactAdapter.addConctact(contact)
                 Log.v("datos", contact.firstName ?:"sin firstName")
-
             }
+
         }, {
             Snackbar.make(binding.root, "Error en la conexion con el API", Snackbar.LENGTH_SHORT)
                 .show()
@@ -60,7 +63,8 @@ class SecondActivity : AppCompatActivity() {
     }
 
     private fun instancias() {
-        contactAdapter = ContactAdapter(DataSet.lista, this)
+        listaContacts = ArrayList()
+        contactAdapter = ContactAdapter(listaContacts, this)
         binding.recycler.adapter = contactAdapter
         if (resources.configuration.orientation == 1) {
             binding.recycler.layoutManager =
