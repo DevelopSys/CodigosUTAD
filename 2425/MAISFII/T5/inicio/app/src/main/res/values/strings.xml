@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Inicio</string>
+    <string name="hint_correo">introduce correo</string>
+    <string name="hint_pass">introduce pass</string>
+    <string name="label_check">Permitir inicio</string>
+    <string name="btn_login">Iniciar</string>
+    <string name="btn_register">Registro</string>
+    <string-array name="perfiles">
+        <item>Administrador</item>
+        <item>Usuario</item>
+    </string-array>
+</resources>
