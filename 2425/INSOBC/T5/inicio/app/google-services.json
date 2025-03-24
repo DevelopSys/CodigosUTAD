@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "692202619437",
+    "project_id": "utad2425insobc",
+    "storage_bucket": "utad2425insobc.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:692202619437:android:3e16e1b99ae6e6cfbe2ea4",
+        "android_client_info": {
+          "package_name": "com.example.inicio"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDXFp9UDrvGhiNdorTQmYs35OCYSyXCBwo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -11,15 +11,21 @@ import androidx.navigation.fragment.findNavController
 import com.example.inicio.R
 import com.example.inicio.databinding.FragmentLoginBinding
 import com.example.inicio.databinding.FragmentRegistroBinding
+import com.google.android.material.snackbar.Snackbar
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
 
 
 class RegistroFragment: Fragment() {
 
     private lateinit var binding: FragmentRegistroBinding
     private lateinit var datoRecuperado: String
+    private lateinit var auth: FirebaseAuth
+
     override fun onAttach(context: Context) {
         super.onAttach(context)
         datoRecuperado = arguments?.getString("dato")!!
+        auth = FirebaseAuth.getInstance()
     }
 
     override fun onCreateView(
@@ -35,6 +41,18 @@ class RegistroFragment: Fragment() {
         super.onStart()
         binding.botonVolver.setOnClickListener {
             findNavController().navigate(R.id.action_registroFragment_to_loginFragment)
+        }
+        binding.botonRegistro.setOnClickListener {
+            auth.createUserWithEmailAndPassword("borja1@gmail.com","Utad1234")
+                .addOnCompleteListener {
+                    if (it.isSuccessful){
+                        Snackbar.make(binding.root,"Registro correcto", Snackbar.LENGTH_SHORT).show()
+                        val user: FirebaseUser = auth.currentUser!!
+                        Log.v("usuario", user.uid)
+                    } else {
+                        Snackbar.make(binding.root,"Registro incorrecto", Snackbar.LENGTH_SHORT).show()
+                    }
+                }
         }
         Log.v("datos",datoRecuperado)
     }
