@@ -11,21 +11,26 @@ import androidx.navigation.fragment.findNavController
 import com.example.inicio.R
 import com.example.inicio.databinding.FragmentLoginBinding
 import com.example.inicio.databinding.FragmentRegistroBinding
+import com.example.inicio.model.User
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.database.FirebaseDatabase
 
 
-class RegistroFragment: Fragment() {
+class RegistroFragment : Fragment() {
 
     private lateinit var binding: FragmentRegistroBinding
     private lateinit var datoRecuperado: String
     private lateinit var auth: FirebaseAuth
+    private lateinit var database: FirebaseDatabase
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
         datoRecuperado = arguments?.getString("dato")!!
         auth = FirebaseAuth.getInstance()
+        database =
+            FirebaseDatabase.getInstance("https://utad2425insobc-default-rtdb.europe-west1.firebasedatabase.app/")
     }
 
     override fun onCreateView(
@@ -33,7 +38,7 @@ class RegistroFragment: Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentRegistroBinding.inflate(inflater,container,false)
+        binding = FragmentRegistroBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -43,17 +48,38 @@ class RegistroFragment: Fragment() {
             findNavController().navigate(R.id.action_registroFragment_to_loginFragment)
         }
         binding.botonRegistro.setOnClickListener {
-            auth.createUserWithEmailAndPassword("borja1@gmail.com","Utad1234")
+            auth.createUserWithEmailAndPassword(
+                binding.editCorreo.text.toString(),
+                binding.editPass.text.toString()
+            )
                 .addOnCompleteListener {
-                    if (it.isSuccessful){
-                        Snackbar.make(binding.root,"Registro correcto", Snackbar.LENGTH_SHORT).show()
+                    if (it.isSuccessful) {
+                        Snackbar.make(binding.root, "Registro correcto", Snackbar.LENGTH_SHORT)
+                            .show()
+                        guardarUsuario(
+                            User(
+                                nombre = binding.editNombre.text.toString(),
+                                telefono = binding.editTelefono.text.toString().toInt(),
+                                pass = binding.editPass.text.toString(),
+                                correo = binding.editCorreo.text.toString()
+                            ), auth.currentUser!!.uid
+                        )
                         val user: FirebaseUser = auth.currentUser!!
                         Log.v("usuario", user.uid)
                     } else {
-                        Snackbar.make(binding.root,"Registro incorrecto", Snackbar.LENGTH_SHORT).show()
+                        Snackbar.make(binding.root, "Registro incorrecto", Snackbar.LENGTH_SHORT)
+                            .show()
                     }
                 }
         }
-        Log.v("datos",datoRecuperado)
+        Log.v("datos", datoRecuperado)
+    }
+
+    private fun guardarUsuario(usuario: User, uid: String) {
+        // guardar los datos del usuario en la base de datos
+        /*database.reference.child("usuarios")
+            .child(uid).child("nombre").setValue(usuario.nombre)*/
+        database.reference.child("usuarios")
+            .child(uid).setValue(usuario)
     }
 }

@@ -19,24 +19,74 @@
         android:id="@+id/textoRegistro"
         />
 
+    <EditText
+
+        android:layout_marginTop="64dp"
+        android:id="@+id/editNombre"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="@+id/textoRegistro"
+        app:layout_constraintStart_toStartOf="@+id/textoRegistro"
+        app:layout_constraintTop_toBottomOf="@+id/textoRegistro"
+        android:hint="Introduce nombre"
+        android:gravity="center"
+        />
+
+
+    <EditText
+        android:layout_marginTop="24dp"
+        android:id="@+id/editTelefono"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:hint="Introduce telefono"
+        app:layout_constraintEnd_toEndOf="@+id/textoRegistro"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/textoRegistro"
+        app:layout_constraintTop_toBottomOf="@+id/editNombre"
+        android:inputType="number"/>
+
+    <EditText
+        android:inputType="textEmailAddress"
+        android:layout_marginTop="24dp"
+        android:id="@+id/editCorreo"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:hint="Introduce correo"
+        app:layout_constraintEnd_toEndOf="@+id/textoRegistro"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/textoRegistro"
+        app:layout_constraintTop_toBottomOf="@+id/editTelefono" />
+
+
+    <EditText
+        android:layout_marginTop="24dp"
+        android:id="@+id/editPass"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:hint="Introduce pass"
+        android:inputType="textPassword"
+        app:layout_constraintEnd_toEndOf="@+id/textoRegistro"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/textoRegistro"
+        app:layout_constraintTop_toBottomOf="@+id/editCorreo" />
+
     <Button
         android:id="@+id/botonRegistro"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="Registro"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/textoRegistro"
-        app:layout_constraintStart_toStartOf="@+id/textoRegistro"
-        app:layout_constraintTop_toBottomOf="@+id/textoRegistro" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <Button
         android:id="@+id/botonVolver"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
         android:text="Volver"
-        app:layout_constraintEnd_toEndOf="@+id/botonRegistro"
-        app:layout_constraintStart_toStartOf="@+id/botonRegistro"
-        app:layout_constraintTop_toBottomOf="@+id/botonRegistro" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
