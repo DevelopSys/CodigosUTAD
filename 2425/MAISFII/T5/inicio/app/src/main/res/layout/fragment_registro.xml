@@ -19,6 +19,51 @@
         android:id="@+id/textoRegistro"
         />
 
+    <EditText
+        android:hint="Introduce tu nombre"
+        android:gravity="center"
+        android:layout_marginTop="48dp"
+        android:id="@+id/editNombre"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="@+id/textoRegistro"
+        app:layout_constraintStart_toStartOf="@+id/textoRegistro"
+        app:layout_constraintTop_toBottomOf="@+id/textoRegistro" />
+
+    <EditText
+        android:id="@+id/editCorreo"
+        android:layout_marginTop="12dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:hint="Introduce tu correo"
+        app:layout_constraintEnd_toEndOf="@+id/textoRegistro"
+        app:layout_constraintStart_toStartOf="@+id/textoRegistro"
+        app:layout_constraintTop_toBottomOf="@+id/editNombre" />
+
+    <EditText
+        android:layout_marginTop="12dp"
+        android:id="@+id/editTelefono"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:hint="Introduce tu telefono"
+        app:layout_constraintEnd_toEndOf="@+id/textoRegistro"
+        app:layout_constraintStart_toStartOf="@+id/textoRegistro"
+        app:layout_constraintTop_toBottomOf="@+id/editCorreo" />
+
+    <EditText
+        android:layout_marginTop="12dp"
+        android:id="@+id/editPass"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:hint="Introduce tu pass"
+        app:layout_constraintEnd_toEndOf="@+id/textoRegistro"
+        app:layout_constraintStart_toStartOf="@+id/textoRegistro"
+        app:layout_constraintTop_toBottomOf="@+id/editTelefono" />
+
+
     <Button
         android:id="@+id/botonRegistro"
         android:layout_width="0dp"
