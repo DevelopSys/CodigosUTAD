@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "242043894466",
+    "project_id": "bmh-utadinsoa",
+    "storage_bucket": "bmh-utadinsoa.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:242043894466:android:4458cbb44db7547c13995b",
+        "android_client_info": {
+          "package_name": "com.example.tienda"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC02Id7gTolJbmyOhUPJUKn8YV10sAMKzk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
