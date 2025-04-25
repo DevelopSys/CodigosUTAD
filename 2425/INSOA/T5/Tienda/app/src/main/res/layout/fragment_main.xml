@@ -31,6 +31,12 @@
         android:text="Escribir"
         android:id="@+id/btnEscribir"
         />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Consultar"
+        android:id="@+id/btnConsulta"
+        />
 
     <Button
         android:layout_width="wrap_content"

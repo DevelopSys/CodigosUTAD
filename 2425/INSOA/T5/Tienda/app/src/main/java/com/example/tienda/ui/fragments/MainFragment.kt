@@ -11,8 +11,13 @@ import androidx.navigation.fragment.findNavController
 import com.example.tienda.R
 import com.example.tienda.databinding.FragmentLoginBinding
 import com.example.tienda.databinding.FragmentMainBinding
+import com.example.tienda.model.User
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.ChildEventListener
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 
 class MainFragment : Fragment() {
 
@@ -46,6 +51,83 @@ class MainFragment : Fragment() {
         binding.btnEscribir.setOnClickListener {
             database.reference.child("aplicacion")
                 .child("fecha").setValue(null)
+        }
+        binding.btnConsulta.setOnClickListener {
+            /*database.reference.child("aplicacion")
+                .child("caracteristicas")
+                .child("nombre")
+                .get().addOnSuccessListener {
+                    // it.key // nombre
+                    binding.textoMain.text = it.value.toString() // ProductosApp
+                }*/
+
+            /*database.reference.child("aplicacion")
+                .addChildEventListener(object : ChildEventListener{
+                    override fun onChildAdded(snapshot: DataSnapshot, previousChildName: String?) {
+                        Log.v("dato", "Añadido"+snapshot.toString())
+                    }
+                    override fun onChildChanged(
+                        snapshot: DataSnapshot,
+                        previousChildName: String?
+                    ) {
+                        Log.v("dato", "Modificado"+snapshot.toString())
+                    }
+
+                    override fun onChildRemoved(snapshot: DataSnapshot) {
+                        Log.v("dato", "Borrado"+snapshot.toString())
+                    }
+
+                    override fun onChildMoved(snapshot: DataSnapshot, previousChildName: String?) {
+                        Log.v("dato", "movido"+snapshot.toString())
+                    }
+
+                    override fun onCancelled(error: DatabaseError) {
+                        TODO("Not yet implemented")
+                    }
+
+                })*/
+            //.child("caracteristicas")
+            //.child("nombre")
+            /*.addValueEventListener(object : ValueEventListener{
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    Log.v("dato", snapshot.value.toString())
+                    binding.textoMain.text = snapshot.value.toString()
+                }
+
+                override fun onCancelled(error: DatabaseError) {
+                    TODO("Not yet implemented")
+                }
+
+            })*/
+
+            database.reference.child("usuarios")
+                .addChildEventListener(object : ChildEventListener {
+                override fun onChildAdded(snapshot: DataSnapshot, previousChildName: String?) {
+                    val usuario = snapshot.getValue(User::class.java)
+                    Log.v("usuarios",usuario?.nombre.toString())
+                }
+
+                override fun onChildChanged(snapshot: DataSnapshot, previousChildName: String?) {
+                    val usuario = snapshot.getValue(User::class.java)
+                    Log.v("usuarios",usuario?.nombre.toString())
+                }
+
+                override fun onChildRemoved(snapshot: DataSnapshot) {
+                    val usuario = snapshot.getValue(User::class.java)
+                    Log.v("usuarios",usuario?.nombre.toString())
+                }
+
+                override fun onChildMoved(snapshot: DataSnapshot, previousChildName: String?) {
+                    val usuario = snapshot.getValue(User::class.java)
+                    Log.v("usuarios",usuario?.nombre.toString())
+                }
+
+                override fun onCancelled(error: DatabaseError) {
+                    TODO("Not yet implemented")
+                }
+
+            })
+
         }
         binding.btnVolver.setOnClickListener {
             findNavController().navigate(R.id.action_mainFragment_to_loginFragment)
