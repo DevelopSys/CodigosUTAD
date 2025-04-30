@@ -50,6 +50,7 @@ class CalculadoraState extends State<CalculadoraWidget> {
                 resultado = int.parse(controllerEdit1.text) + int.parse(controllerEdit2.text);
               });
             }, child: Text("Calcular"))
+
           ],),),
         floatingActionButton: FloatingActionButton(onPressed: () {})
     );
