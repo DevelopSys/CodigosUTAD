@@ -1,0 +1,76 @@
+Grupo -> id
+
+	b -> idxxx
+	b -> id
+	b -> id
+	b -> id
+
+grupo.setOnItemSelectedListener {id -> }
+binding.b1.setOnClickListener{}
+
+EXAMEN  -> TEST 15 PRACTICA 1 Android 
+		-> TEST 25 - 30
+
+		50% practica(10) + 50% examen (8) = 5 + 4 = 9
+
+		80% preguntas android (kotlin)
+		20% preguntas flutter (dart)
+
+Cuando trabajamos con Flutter, para indicar que un elemento nulo no se ejecute, se utiliza el operadore
+
+a ?: 
+b :
+c :?
+d ??
+
+Cuando hablamos de android, el primer metodo del ciclo de vida de una activity es;
+
+a onCreate
+b OnStart
+c OnResumen
+d OnAttach
+
+Cuando configuramos una interfaz grafica mediante un fichero XML, indica cual de los siguientes atributos es obligatorio
+
+a layout_width - layout_heigth
+b layout_width - layout_heigth - id (solo es "obligatorio" cuando se utiliza constraint_layout")
+c tag - id
+d layout_width - layout_heigth - tag
+
+Si utilizamos constraint_layout, que es necesario para configurar 1 solo elemento (que aparezca en cualquier lado)
+a restriccion en un 1 eje
+b restriccion en un 1 eje e id
+c 1 restriccion por eje e id
+* d 1 restriccion por eje
+
+Si tenemos una funcion con esta firma Funcion(parametro1, parametro2, {parametro3}). Cual de las siguientes llamadas es correcta
+a Funcion(1,2,3)
+b Funcion(paremetro1=1,parametro2=2,3)
+c Funcion(parametro1=1,parametro2=2,parametro3=3)
+d Funcion(1,2,parametro3=3)
+
+Cuando en Dart tenemos una clase, podemos crear constructores multiples?:
+a si, siempre utilizando la palabra constructor y sobrecargando el constructor
+b si, pero solo se puede primario y los sencundario
+c no
+d si, pero solo un constructor de clase y el resto constructores nominales
+
+Alumno(param1, param2, param3){}
+Alumno.opcional(param1, param2, param3, param4){}
+
+
+
+
+
+----------
+- TV
+-
+-    ET 
+-
+-
+- ED
+----------
+
+
+
+
