@@ -6,6 +6,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="16dp"
     tools:context=".MainActivity">
 
     <TextView
@@ -14,13 +15,27 @@
         android:textSize="25sp"
         android:gravity="center"
         android:layout_width="match_parent"
-        android:text="Primera App Android" />
+        android:text="@string/text_title" />
 
+    <EditText
+        android:gravity="center"
+        android:hint="@string/hint_edit_name"
+        android:id="@+id/editNombre"
+        android:layout_marginBottom="40dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
 
     <Button
         android:id="@+id/botonSaludar"
         android:layout_gravity="center"
-        android:text="Saludar"
+        android:text="@string/text_button_hello"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <Button
+        android:id="@+id/botonVaciar"
+        android:layout_gravity="center"
+        android:text="Vaciar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
 
