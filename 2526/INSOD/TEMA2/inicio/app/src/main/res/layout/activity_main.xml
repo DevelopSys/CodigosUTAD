@@ -1,31 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:padding="16dp"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:gravity="center"
+    android:orientation="vertical"
     tools:context=".MainActivity">
 
 
     <TextView
-        android:text="Aplicacion android"
-        android:textSize="25sp"
-        android:layout_height="wrap_content"
         android:layout_width="match_parent"
-        android:gravity="center"
-        android:layout_marginBottom="32dp"
-        />
-
-    <Button
-        android:layout_gravity="center"
-        android:gravity="center"
-        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Saludar"
-        android:id="@+id/botonSaludar"
-        />
+        android:layout_marginBottom="32dp"
+        android:gravity="center"
+        android:text="@string/text_title"
+        android:textSize="25sp" />
+
+    <EditText
+        android:gravity="center"
+        android:id="@+id/editNombre"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
+        android:hint="@string/text_hint_edit" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        >
+
+        <Button
+            android:id="@+id/botonSaludar"
+            android:layout_width="0dp"
+            android:layout_weight="0.45"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="@string/text_btn_hi" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_weight="0.1"
+            android:layout_height="0dp"/>
+
+        <Button
+            android:id="@+id/botonVaciar"
+            android:layout_width="0dp"
+            android:layout_weight="0.45"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="@string/text_btn_clear" />
+
+    </LinearLayout>
 
 
 </LinearLayout>

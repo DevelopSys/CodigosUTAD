@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">inicio</string>
-    <string name="ejemplo">App ejemplo</string>
+    <string name="text_title">Aplicacion android</string>
+    <string name="text_hint_edit">introduce tu nombre</string>
+    <string name="text_btn_hi">Saludar</string>
+    <string name="text_btn_clear">Vaciar</string>
+    <string name="text_snack_empty">Campos vacios</string>
 </resources>
