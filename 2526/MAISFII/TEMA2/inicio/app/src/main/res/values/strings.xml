@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">inicio</string>
+    <string name="text_main">Primera aplicacion android</string>
+    <string name="text_click">Saludar</string>
+    <string name="text_hint">introduce tu nombre</string>
+    <string name="text_clear">Vaciar</string>
+    <string translatable="false" name="text_empty_edit">Campos vacios</string>
 </resources>

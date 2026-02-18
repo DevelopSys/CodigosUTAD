@@ -15,25 +15,42 @@
         android:textSize="25sp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Primera app android"
+        android:text="@string/text_main"
         android:layout_marginBottom="32dp"
         />
 
     <EditText
         android:gravity="center"
-        android:hint="introduce tu nombre"
+        android:hint="@string/text_hint"
         android:id="@+id/editNombre"
         android:layout_marginBottom="32dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 
 
-
-
-    <Button
-        android:id="@+id/botonSaludar"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:gravity="center"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Saludar"/>
+        android:orientation="horizontal"
+        >
+
+        <Button
+            android:id="@+id/botonSaludar"
+            android:layout_width="0dp"
+            android:layout_weight="0.5"
+            android:layout_height="wrap_content"
+            android:text="@string/text_click"/>
+        <Button
+            android:id="@+id/botonVaciar"
+            android:layout_width="0dp"
+            android:layout_weight="0.5"
+            android:layout_height="wrap_content"
+            android:text="@string/text_clear"/>
+
+    </LinearLayout>
+
+
+
 
 </LinearLayout>
