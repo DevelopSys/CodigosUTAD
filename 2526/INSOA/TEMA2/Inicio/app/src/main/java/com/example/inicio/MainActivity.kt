@@ -47,6 +47,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
          */
         binding.botonSaludar.setOnClickListener(this)
         binding.botonVaciar.setOnClickListener(this)
+        binding.botonSalir?.setOnClickListener(this)
 
     }
 
@@ -97,6 +98,9 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                         Snackbar.LENGTH_LONG
                     ).show()
                 }
+            }
+            binding.botonSalir?.id ->{
+                finish()
             }
         }
     }
