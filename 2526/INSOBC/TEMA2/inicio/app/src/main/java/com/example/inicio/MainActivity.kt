@@ -51,6 +51,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener{
 
         binding.botonVaciar.setOnClickListener(this)
         binding.botonSaludar.setOnClickListener(this)
+        binding.botonCerrar?.setOnClickListener(this)
     }
 
     override fun onStart() {
@@ -93,6 +94,10 @@ class MainActivity : AppCompatActivity(), View.OnClickListener{
            binding.botonVaciar.id->{
 
            }
+
+            binding.botonCerrar!!.id ->{
+                finish()
+            }
         }
     }
 }
