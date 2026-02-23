@@ -32,12 +32,66 @@
         app:layout_constraintStart_toStartOf="@+id/imagenLogin"
         app:layout_constraintTop_toTopOf="@+id/guiaHorizontal" />
 
+
+    <EditText
+        android:id="@+id/editPassLogin"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:drawableStart="@drawable/pass_ico"
+        android:drawablePadding="4dp"
+        android:gravity="center"
+        android:hint="introduce tu pass"
+        android:inputType="textPassword"
+        app:layout_constraintEnd_toEndOf="@+id/imagenLogin"
+        app:layout_constraintStart_toStartOf="@+id/imagenLogin"
+        app:layout_constraintTop_toBottomOf="@+id/editCorreoLogin" />
+
+    <Spinner
+        android:id="@+id/spinnerEdad"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="@+id/editPassLogin"
+        app:layout_constraintStart_toStartOf="@+id/editPassLogin"
+        app:layout_constraintTop_toBottomOf="@+id/editPassLogin" />
+
+    <CheckBox
+        android:id="@+id/checkBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Recordar sesión"
+        app:layout_constraintEnd_toEndOf="@+id/spinnerEdad"
+        app:layout_constraintTop_toBottomOf="@+id/spinnerEdad" />
+
+    <Button
+        android:id="@+id/botonLogin"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/guideline3"
+        app:layout_constraintStart_toStartOf="@+id/spinnerEdad"
+        app:layout_constraintTop_toBottomOf="@+id/checkBox" />
+
+    <Button
+        android:id="@+id/botonRegister"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="@+id/checkBox"
+        app:layout_constraintStart_toStartOf="@+id/guideline3"
+        app:layout_constraintTop_toTopOf="@+id/botonLogin" />
+
     <androidx.constraintlayout.widget.Guideline
         app:layout_constraintGuide_percent="0.4"
         android:id="@+id/guiaHorizontal"
         android:orientation="horizontal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
