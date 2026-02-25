@@ -35,10 +35,65 @@
         app:layout_constraintStart_toStartOf="@+id/imagenLogin"
         app:layout_constraintTop_toTopOf="@+id/guiaHorizontal" />
 
+    <EditText
+        android:id="@+id/editPass"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:drawableStart="@drawable/pass_icon"
+        android:drawablePadding="8dp"
+        android:gravity="center"
+        android:hint="introduce pass"
+        android:inputType="textPassword"
+        app:layout_constraintEnd_toEndOf="@+id/imagenLogin"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/imagenLogin"
+        app:layout_constraintTop_toBottomOf="@+id/editCorreo" />
+
+    <Spinner
+        android:id="@+id/spinnerEdad"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="@+id/editPass"
+        app:layout_constraintStart_toStartOf="@+id/editPass"
+        app:layout_constraintTop_toBottomOf="@+id/editPass" />
+
+    <CheckBox
+        android:id="@+id/checkPass"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Recordar pass"
+        app:layout_constraintEnd_toEndOf="@+id/spinnerEdad"
+        app:layout_constraintTop_toBottomOf="@+id/spinnerEdad" />
+
+    <Button
+        android:id="@+id/botonLogin"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Login"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/guiaVertical"
+        app:layout_constraintStart_toStartOf="@+id/spinnerEdad"
+        app:layout_constraintTop_toBottomOf="@+id/checkPass" />
+
+    <Button
+        android:id="@+id/botonRegistro"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Registro"
+        app:layout_constraintEnd_toEndOf="@+id/checkPass"
+        app:layout_constraintStart_toStartOf="@+id/guiaVertical"
+        app:layout_constraintTop_toTopOf="@+id/botonLogin" />
+
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guiaHorizontal"
-        app:layout_constraintGuide_percent="0.4"
+        app:layout_constraintGuide_percent="0.5"
         android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guiaVertical"
+        app:layout_constraintGuide_percent="0.5"
+        android:orientation="vertical"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
