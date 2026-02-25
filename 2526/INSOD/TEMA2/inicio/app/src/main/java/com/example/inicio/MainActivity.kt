@@ -43,6 +43,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
         binding.botonSaludar.setOnClickListener(this)
         binding.botonVaciar.setOnClickListener(this)
+        binding.botonSalir?.setOnClickListener(this)
     }
 
     private fun showSnack(text: String) {
@@ -55,14 +56,19 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     override fun onClick(v: View?) {
-       // funcionamiento comun
-        when(v?.id){
-           binding.botonVaciar.id->{
+        // funcionamiento comun
+        when (v?.id) {
+            binding.botonVaciar.id -> {
 
-           }
-           binding.botonSaludar.id->{
+            }
 
-           }
-       }
+            binding.botonSaludar.id -> {
+
+            }
+
+            binding.botonSalir!!.id -> {
+                finish()
+            }
+        }
     }
 }
