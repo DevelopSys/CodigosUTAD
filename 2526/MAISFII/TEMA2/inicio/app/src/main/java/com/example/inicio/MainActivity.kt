@@ -45,6 +45,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     private fun actions() {
         binding.botonSaludar.setOnClickListener(this)
         binding.botonVaciar.setOnClickListener(this)
+        binding.botonSalir?.setOnClickListener(this)
     }
 
     override fun onClick(v: View?) {
@@ -53,7 +54,6 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             binding.botonVaciar.id -> {
                 binding.editNombre.text.clear()
             }
-
             binding.botonSaludar.id -> {
 
                 if (binding.editNombre.text.toString().isEmpty()) {
@@ -71,6 +71,9 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                 }
 
 
+            }
+            binding.botonSalir!!.id ->{
+                finish()
             }
         }
     }

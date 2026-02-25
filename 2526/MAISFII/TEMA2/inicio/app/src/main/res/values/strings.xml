@@ -4,5 +4,12 @@
     <string name="text_click">Saludar</string>
     <string name="text_hint">introduce tu nombre</string>
     <string name="text_clear">Vaciar</string>
-    <string translatable="false" name="text_empty_edit">Campos vacios</string>
+    <string name="text_empty_edit" translatable="false">Campos vacios</string>
+    <string-array name="numeros_edad">
+        <item>18</item>
+        <item>19</item>
+        <item>20</item>
+        <item>21</item>
+        <item>22</item>
+    </string-array>
 </resources>
