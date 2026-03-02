@@ -76,3 +76,26 @@ class LoginActivity() : AppCompatActivity() {
             .setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
     }
 }
+
+
+/*
+    1. En la pantalla login
+        En caso de no tener todos los edit rellenos
+            Aviso con un snackbar
+        En caso de estar rellenos
+            si los datos son admin@admin.com y admin -> login
+            si no son esos datos -> error
+
+
+     2- Crear una pantalla de registro
+        Nombre
+        Apellido
+        Pass
+        Edad (17-99)
+        Ciudad
+        Boton
+        Si los campos no estan todos rellenos -> aviso
+        Si los campos estan todos rellenos
+            Navego a la pantalla de login pasando datos y pongo en el
+            edit correo el correo y en el edit pass la pass
+ */
