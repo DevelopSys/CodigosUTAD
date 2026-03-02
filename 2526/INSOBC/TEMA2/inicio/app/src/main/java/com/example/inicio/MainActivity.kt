@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.inicio.databinding.ActivityMainBinding
+import com.example.inicio.model.User
 import com.google.android.material.snackbar.Snackbar
 
 
@@ -16,12 +17,23 @@ class MainActivity : AppCompatActivity(), View.OnClickListener{
 
     // tantas variables coo elementos graficos tenga
     private lateinit var binding: ActivityMainBinding
+    private lateinit var user: User
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        getData()
+        initGUI()
         actions()
         Log.v("ciclo_vida", "metodo onCreate ejecutado")
+    }
+
+    private fun initGUI() {
+        binding.editNombre.setText(user.mail)
+    }
+
+    private fun getData() {
+        user = intent.getSerializableExtra("user") as User
     }
 
     private fun actions() {

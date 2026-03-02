@@ -5,4 +5,9 @@
     <string name="text_button_hello">Saludar</string>
     <string name="text_snack_empty">Nombre vacio</string>
     <string name="text_congrats">Enhorabuena</string>
+    <string-array name="perfiles">
+        <item>Administrador</item>
+        <item>Usuario</item>
+        <item>Invitado</item>
+    </string-array>
 </resources>
