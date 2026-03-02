@@ -8,22 +8,29 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.inicio.databinding.ActivityMainBinding
+import com.example.inicio.model.Usuario
 import com.google.android.material.snackbar.Snackbar
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
 
     private lateinit var binding: ActivityMainBinding
+    private lateinit var usuario: Usuario
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        getData()
         Log.v("ciclo_vida", "ejcutando el onCreate")
+    }
+
+    private fun getData() {
+            usuario = intent.getSerializableExtra("usuario") as Usuario
     }
 
     override fun onResume() {
         super.onResume()
-
+        binding.editNombre.setText(usuario.correo.toString())
         /*
         binding.botonSaludar.setOnClickListener {
 
