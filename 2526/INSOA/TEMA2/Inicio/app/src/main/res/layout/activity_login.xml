@@ -50,8 +50,9 @@
 
 
 
+<!--        android:entries="@array/perfiles"-->
     <Spinner
-        android:id="@+id/spinnerEdad"
+        android:id="@+id/spinnerPerfiles"
         android:layout_marginTop="8dp"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -65,14 +66,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Recordad pass"
-        app:layout_constraintEnd_toEndOf="@+id/spinnerEdad"
-        app:layout_constraintTop_toBottomOf="@+id/spinnerEdad" />
+        app:layout_constraintEnd_toEndOf="@+id/spinnerPerfiles"
+        app:layout_constraintTop_toBottomOf="@+id/spinnerPerfiles" />
 
     <Button
-        android:text="Login"
         android:id="@+id/botonLogin"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:text="Login"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/guiaVertical"
         app:layout_constraintHorizontal_bias="0.0"
