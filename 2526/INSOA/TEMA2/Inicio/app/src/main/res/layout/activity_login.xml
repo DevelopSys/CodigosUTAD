@@ -48,20 +48,53 @@
         app:layout_constraintStart_toStartOf="@+id/imagenLogin"
         app:layout_constraintTop_toBottomOf="@+id/editCorreoLogin" />
 
+
+
+    <Spinner
+        android:id="@+id/spinnerEdad"
+        android:layout_marginTop="8dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="@+id/editPassLogin"
+        app:layout_constraintStart_toStartOf="@+id/editPassLogin"
+        app:layout_constraintTop_toBottomOf="@+id/editPassLogin" />
+
+    <CheckBox
+        android:layout_marginTop="8dp"
+        android:id="@+id/checkPass"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Recordad pass"
+        app:layout_constraintEnd_toEndOf="@+id/spinnerEdad"
+        app:layout_constraintTop_toBottomOf="@+id/spinnerEdad" />
+
     <Button
+        android:text="Login"
         android:id="@+id/botonLogin"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/guiaVertical"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/editPassLogin"
-        app:layout_constraintTop_toBottomOf="@+id/editPassLogin" />
+        app:layout_constraintTop_toBottomOf="@+id/checkPass" />
+
+
+    <Button
+        android:text="Registrar"
+        android:id="@+id/botonRegistro"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="@+id/checkPass"
+        app:layout_constraintStart_toStartOf="@+id/guiaVertical"
+        app:layout_constraintTop_toTopOf="@+id/botonLogin" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guiaHorizontal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.4" />
+        app:layout_constraintGuide_percent="0.5" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guiaVertical"
