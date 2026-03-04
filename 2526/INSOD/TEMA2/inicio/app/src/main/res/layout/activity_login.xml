@@ -23,14 +23,14 @@
 
 
     <EditText
-        android:drawablePadding="8dp"
-        android:drawableStart="@drawable/mail_icon"
-        android:gravity="center"
-        android:inputType="textEmailAddress"
-        android:hint="introduce correo"
         android:id="@+id/editCorreo"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:drawableStart="@drawable/mail_icon"
+        android:drawablePadding="8dp"
+        android:gravity="center"
+        android:hint="introduce correo"
+        android:inputType="textEmailAddress"
         app:layout_constraintEnd_toEndOf="@+id/imagenLogin"
         app:layout_constraintStart_toStartOf="@+id/imagenLogin"
         app:layout_constraintTop_toTopOf="@+id/guiaHorizontal" />
@@ -50,7 +50,8 @@
         app:layout_constraintTop_toBottomOf="@+id/editCorreo" />
 
     <Spinner
-        android:id="@+id/spinnerEdad"
+
+        android:id="@+id/spinnerPerfil"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="@+id/editPass"
@@ -62,8 +63,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Recordar pass"
-        app:layout_constraintEnd_toEndOf="@+id/spinnerEdad"
-        app:layout_constraintTop_toBottomOf="@+id/spinnerEdad" />
+        app:layout_constraintEnd_toEndOf="@+id/spinnerPerfil"
+        app:layout_constraintTop_toBottomOf="@+id/spinnerPerfil" />
 
     <Button
         android:id="@+id/botonLogin"
@@ -72,7 +73,7 @@
         android:text="Login"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/guiaVertical"
-        app:layout_constraintStart_toStartOf="@+id/spinnerEdad"
+        app:layout_constraintStart_toStartOf="@+id/spinnerPerfil"
         app:layout_constraintTop_toBottomOf="@+id/checkPass" />
 
     <Button
@@ -86,18 +87,17 @@
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guiaHorizontal"
-        app:layout_constraintGuide_percent="0.5"
-        android:orientation="horizontal"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.5" />
+
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guiaVertical"
-        app:layout_constraintGuide_percent="0.5"
-        android:orientation="vertical"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-
-
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

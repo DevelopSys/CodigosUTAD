@@ -5,4 +5,9 @@
     <string name="text_btn_hi">Saludar</string>
     <string name="text_btn_clear">Vaciar</string>
     <string name="text_snack_empty">Campos vacios</string>
+    <string-array name="profiles">
+        <item>Administrador</item>
+        <item>Usuario</item>
+        <item>Invitado</item>
+    </string-array>
 </resources>
