@@ -9,21 +9,24 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.inicio.databinding.ActivityMainBinding
+import com.example.inicio.model.Usuario
 import com.google.android.material.snackbar.Snackbar
+import java.io.Serializable
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
 
     // referencia a cada uno de los elementos de la parte UI
 
     private lateinit var binding: ActivityMainBinding
+    private lateinit var usuario: Usuario
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        getDatos()
         actions()
-        Log.v("ciclo_vida","ejecutando metodo onCreate")
-
+        initGUI()
         /*
         binding.botonSaludar.setOnClickListener {
             // configura que pasa cuando se pulsa el boton
@@ -42,6 +45,15 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
     }
 
+    private fun initGUI() {
+        binding.editNombre.setText(usuario.mail)
+    }
+
+    private fun getDatos() {
+        // recuperar los datos pasados
+        usuario = intent.getSerializableExtra("usuario_dato") as Usuario
+    }
+
     private fun actions() {
         binding.botonSaludar.setOnClickListener(this)
         binding.botonVaciar.setOnClickListener(this)
@@ -54,6 +66,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             binding.botonVaciar.id -> {
                 binding.editNombre.text.clear()
             }
+
             binding.botonSaludar.id -> {
 
                 if (binding.editNombre.text.toString().isEmpty()) {
@@ -72,7 +85,8 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
 
             }
-            binding.botonSalir!!.id ->{
+
+            binding.botonSalir!!.id -> {
                 finish()
             }
         }
@@ -80,37 +94,37 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
     override fun onStart() {
         super.onStart()
-        Log.v("ciclo_vida","ejecutando metodo onStart")
+        Log.v("ciclo_vida", "ejecutando metodo onStart")
 
     }
 
     override fun onResume() {
         super.onResume()
-        Log.v("ciclo_vida","ejecutando metodo onResume")
+        Log.v("ciclo_vida", "ejecutando metodo onResume")
 
     }
 
     override fun onPause() {
         super.onPause()
-        Log.v("ciclo_vida","ejecutando metodo onPause")
+        Log.v("ciclo_vida", "ejecutando metodo onPause")
 
     }
 
     override fun onStop() {
         super.onStop()
-        Log.v("ciclo_vida","ejecutando metodo onStop")
+        Log.v("ciclo_vida", "ejecutando metodo onStop")
 
     }
 
     override fun onRestart() {
         super.onRestart()
-        Log.v("ciclo_vida","ejecutando metodo onRestart")
+        Log.v("ciclo_vida", "ejecutando metodo onRestart")
 
     }
 
     override fun onDestroy() {
         super.onDestroy()
-        Log.v("ciclo_vida","ejecutando metodo onDestroy")
+        Log.v("ciclo_vida", "ejecutando metodo onDestroy")
 
     }
 
