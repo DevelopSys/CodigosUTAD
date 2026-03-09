@@ -44,27 +44,26 @@ class LoginActivity : AppCompatActivity() {
             intent.putExtra("usuario",usuario)
             startActivity(intent)
         }
+        binding.botonRegistro.setOnClickListener {
+            val intent = Intent(applicationContext,
+                RegistroActivity::class.java);
+            startActivity(intent)
+            finish()
+        }
 
 
         /*
-           1- Comprobar que todos los datos estan rellenos
-            En caso de no estarlos, sacar una notificacion con el aviso
-            Ademas de limpiar todos los datos
-            En caso de estar todos rellenos, solo hacer login si
-                correo: admin@gmail.com
-                pass: admin
+            1 -> En la pantalla de login: Si algun campos no esta rellenos -> aviso
+            2 -> En la pantalla de login: Si introduzco datos
+                -> si el mail/pass estan en dataSet -> navega al main pasando
+                el usuario logeado
+                y en la pantalla de main ponga un texto de bienvendio NOMBRE USUARIO
+                -> si el mail/pass no estan en dataSet -> aviso
+            3 -> En la pantalla de registro:
+                -> Si se registra el usuario -> navego al login y ademas
+                    -> paso el correo / mail  registrado y lo pongo en
+                    los edit correspondientes
 
-                Si los datos no son esos, avisar del fallo en el login
-
-           2- Realizar una pantalla de registro:
-            Nombre
-            Apellido
-            Pass
-            Edad
-            Ciudad
-            Comprobar los campos rellenos -> aviso si no hay nada relleno
-            En caso de estar todo relleno y pulsar regstrar, navega a pantalla login
-                              pasando el usuario
 
          */
 
