@@ -63,8 +63,6 @@ class LoginActivity : AppCompatActivity() {
                 -> Si se registra el usuario -> navego al login y ademas
                     -> paso el correo / mail  registrado y lo pongo en
                     los edit correspondientes
-
-
          */
 
 
