@@ -47,6 +47,11 @@ class LoginActivity() : AppCompatActivity() {
             )
             startActivity(intent)
         }
+        binding.botonRegister.setOnClickListener{
+            val intent = Intent(applicationContext,
+                RegistroActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     override fun onRestart() {
