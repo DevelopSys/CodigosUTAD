@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">inicio</string>
+    <string name="text_main">First android app</string>
+    <string name="text_click">Say hi!!</string>
+    <string name="text_hint">enter your name</string>
+    <string name="text_clear">Clear</string>
+
+</resources>
+

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="padding_activity">32dp</dimen>
+    <dimen name="margin_bottom_form_element">16dp</dimen>
+    <dimen name="margin_bottom_form">16dp</dimen>
+</resources>
