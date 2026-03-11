@@ -1,6 +1,4 @@
 package com.example.inicio
-
-
 import android.content.Intent
 import android.os.Bundle
 import android.widget.ArrayAdapter
@@ -38,6 +36,11 @@ class LoginActivity : AppCompatActivity() {
             intent.putExtra("user_data",user)
             startActivity(intent)
             clearData()
+
+        }
+        binding.botonRegistro.setOnClickListener {
+            val intent = Intent(applicationContext, RegistroActivity::class.java)
+            startActivity(intent)
         }
     }
 
