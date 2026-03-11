@@ -1,6 +1,6 @@
 package com.example.inicio.model
 
-class UserData(
+data class UserData(
     var name: String,
     var surName: String,
     var mail: String,

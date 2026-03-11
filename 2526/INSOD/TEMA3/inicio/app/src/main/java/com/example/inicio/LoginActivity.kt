@@ -69,33 +69,18 @@ class LoginActivity : AppCompatActivity() {
             android.R.layout.simple_spinner_item, listProfiles
         )
     }
-
     /*
-    En la pantalla de login
-        Si pulso login
-            si falta algun dato por rellenar -> aviso del error
-            si todos los datos estan rellenos
-                si el user/pass admin@admin.com admin-> navega
-                si el user/pass no es admin@admin.com admin -> avisto del error
-     */
-
-    /*
-    Si doy al boton de registro
-        Nueva pantalla donde tengo un form
-            Nombre
-            Apellido
-            Correo
-            Pass
-            Pass verificada
-            Edad (17-99)
-            Boton
-
-            Al darle al boton puede pasar lo siguiente
-                Si falta algun campo -> aviso del error
-                Si las pass no coinciden -> aviso del error
-                En caso contrario
-                    Navego al login, pansando el usuario
-                        en el campo mail -> mail
-                        en el campo pass -> pass
+        1 -> En la pantalla de login: Si algun campos no esta rellenos -> aviso
+        2 -> En la pantalla de login: Si introduzco datos
+            -> si el mail/pass estan en dataSet -> navega al main pasando
+            el usuario logeado
+            y en la pantalla de main ponga un texto de bienvendio NOMBRE USUARIO
+            -> si el mail/pass no estan en dataSet -> aviso
+        3 -> En la pantalla de registro:
+            -> Si se registra el usuario ->
+                se lanza una notifiacion con accion y si le digo ok
+                    navego al login y ademas
+                    -> paso el correo / mail  registrado y lo pongo en
+                    los edit correspondientes
      */
 }
