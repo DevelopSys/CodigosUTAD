@@ -8,11 +8,14 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.example.inicio.data.DataSet
 import com.example.inicio.databinding.ActivityLoginBinding
 import com.example.inicio.model.Usuario
 
 class LoginActivity : AppCompatActivity(){
 
+    private  var mail: String? = null
+    private  var pass: String? = null
     private lateinit var binding: ActivityLoginBinding
     private lateinit var adapterPerfiles: ArrayAdapter<CharSequence>
     private lateinit var listaPerfiles: List<CharSequence>
@@ -22,8 +25,16 @@ class LoginActivity : AppCompatActivity(){
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
         instancias()
+        recuperarDatos()
         initGUI()
         acciones()
+    }
+
+    private fun recuperarDatos() {
+
+        mail = intent.getStringExtra("mail")
+        pass = intent.getStringExtra("pass")
+
     }
 
     private fun acciones() {
@@ -34,11 +45,17 @@ class LoginActivity : AppCompatActivity(){
             val perfil: String = binding.spinnerPerfil.selectedItem.toString()
             val recordar = binding.checkRecordar.isChecked
 
-            val usuario = Usuario(mail,pass,perfil,recordar)
+            // val usuario = Usuario(mail,pass,perfil,recordar)
 
-            val intent = Intent(applicationContext, MainActivity::class.java)
-            intent.putExtra("usuario_dato",usuario)
-            startActivity(intent)
+            if (DataSet.getLogin(mail,pass)!=null){
+                val intent = Intent(applicationContext, MainActivity::class.java)
+                intent.putExtra("usuario_dato",DataSet.getLogin(mail,pass))
+                startActivity(intent)
+            } else {
+                // metodo de norificacion
+            }
+
+
 
         }
         binding.btnRegistrar.setOnClickListener {
@@ -51,6 +68,10 @@ class LoginActivity : AppCompatActivity(){
         // todas las inicializaciones graficas
         binding.spinnerPerfil.adapter = adapterPerfiles
         adapterPerfiles.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        if (mail!=null && pass!=null){
+            binding.editMail.setText(mail)
+            binding.editPass.setText(pass)
+        }
     }
 
     private fun instancias() {

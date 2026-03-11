@@ -1,5 +1,6 @@
 package com.example.inicio
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.ArrayAdapter
 import androidx.appcompat.app.AppCompatActivity
@@ -34,8 +35,14 @@ class RegsitroActivity : AppCompatActivity() {
 
             val user = UserData(nombre, apellido, correo, pass, edad)
             if (DataSet.addUser(user)) {
-                getSnack("Usuario agregado correctamente")
-                    .setAction("Pulsar"){  }
+                getSnack("Usuario agregado correctamente, quieres iniciar sesion")
+                    .setAction("SI"){
+                        val intent = Intent(applicationContext, LoginActivity::class.java)
+                        intent.putExtra("pass",pass)
+                        intent.putExtra("mail",correo)
+                        startActivity(intent)
+                        finish()
+                    }
                     .show()
             } else {
                 getSnack("Fallo en el proceso de registro").show()

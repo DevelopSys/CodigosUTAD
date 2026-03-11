@@ -22,6 +22,9 @@ class DataSet {
             }
             return false
         }
+        fun getLogin(mail: String, pass: String): UserData?{
+            return listaUsuarios.find { it.correo == mail && it.pass == pass }
+        }
 
     }
 
