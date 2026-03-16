@@ -23,6 +23,15 @@ class DataSet {
             Product(
                 "Pantalones", 20.90, "Pantalones vaqueros", "Pantalones",
                 "https://cdn.grupoelcorteingles.es/statics/manager/contents/images/uploads/2025/03/H1-jwm6c3Jg.jpeg?impolicy=Resize&width=800&height=800"
+            ), Product(
+                "Pantalones", 20.90, "Pantalones vaqueros", "Pantalones",
+                "https://cdn.grupoelcorteingles.es/statics/manager/contents/images/uploads/2025/03/H1-jwm6c3Jg.jpeg?impolicy=Resize&width=800&height=800"
+            ), Product(
+                "Pantalones", 20.90, "Pantalones vaqueros", "Pantalones",
+                "https://cdn.grupoelcorteingles.es/statics/manager/contents/images/uploads/2025/03/H1-jwm6c3Jg.jpeg?impolicy=Resize&width=800&height=800"
+            ), Product(
+                "Pantalones", 20.90, "Pantalones vaqueros", "Pantalones",
+                "https://cdn.grupoelcorteingles.es/statics/manager/contents/images/uploads/2025/03/H1-jwm6c3Jg.jpeg?impolicy=Resize&width=800&height=800"
             )
         )
 
@@ -39,7 +48,7 @@ class DataSet {
 
 
         // funciones de productos
-        fun getAllProducts(): ArrayList<Product>{
+        fun getAllProducts(): ArrayList<Product> {
             return listaProductos
         }
     }
