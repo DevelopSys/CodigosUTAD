@@ -39,12 +39,12 @@ class LoginActivity() : AppCompatActivity() {
 
             val intent = Intent(
                 applicationContext,
-                MainActivity::class.java
+                ListaActivity::class.java
             )
-            intent.putExtra(
+            /*intent.putExtra(
                 "user",
                 User(mail = mail, pass = pass, remeber = remeber, profile = profile)
-            )
+            )*/
             startActivity(intent)
         }
         binding.botonRegister.setOnClickListener{
