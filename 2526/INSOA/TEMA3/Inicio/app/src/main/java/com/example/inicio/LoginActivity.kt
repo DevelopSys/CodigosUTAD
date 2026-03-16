@@ -40,8 +40,8 @@ class LoginActivity : AppCompatActivity() {
             val recordar = binding.checkPass.isChecked;
             val usuario = Usuario(pass = pass, perfil = perfil, correo = correo)
             // origen, destino
-            val intent: Intent = Intent(this, MainActivity::class.java)
-            intent.putExtra("usuario",usuario)
+            val intent: Intent = Intent(this, ListaActivity::class.java)
+            // intent.putExtra("usuario",usuario)
             startActivity(intent)
         }
         binding.botonRegistro.setOnClickListener {
