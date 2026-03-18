@@ -27,13 +27,13 @@ class LoginActivity : AppCompatActivity() {
     private fun actions() {
 
         binding.botonLogin.setOnClickListener {
-            val intent: Intent = Intent(applicationContext, MainActivity::class.java)
+            val intent: Intent = Intent(applicationContext, ListaActivity::class.java)
             val mail= binding.editCorreo.text.toString()
             val pass=binding.editPass.text.toString();
             val profile = binding.spinnerPerfil.selectedItem.toString()
             val remeber = binding.checkPass.isChecked
             val user = User(mail,pass,profile,remeber)
-            intent.putExtra("user_data",user)
+            // intent.putExtra("user_data",user)
             startActivity(intent)
             clearData()
 
