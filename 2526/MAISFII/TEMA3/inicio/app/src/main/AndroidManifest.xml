@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Inicio">
         <activity
+            android:name=".ListaActivity"
+            android:exported="false" />
+        <activity
             android:name=".RegsitroActivity"
             android:exported="false" />
         <activity

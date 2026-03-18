@@ -48,8 +48,8 @@ class LoginActivity : AppCompatActivity(){
             // val usuario = Usuario(mail,pass,perfil,recordar)
 
             if (DataSet.getLogin(mail,pass)!=null){
-                val intent = Intent(applicationContext, MainActivity::class.java)
-                intent.putExtra("usuario_dato",DataSet.getLogin(mail,pass))
+                val intent = Intent(applicationContext, ListaActivity::class.java)
+                // intent.putExtra("usuario_dato",DataSet.getLogin(mail,pass))
                 startActivity(intent)
             } else {
                 // metodo de norificacion
