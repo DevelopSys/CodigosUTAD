@@ -55,5 +55,10 @@ class DataSet {
 
         }
 
+        fun getAllProducts(): ArrayList<Product> {
+            return listaProductos
+        }
+
+
     }
 }
