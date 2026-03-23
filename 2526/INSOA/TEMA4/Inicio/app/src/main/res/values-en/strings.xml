@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Start</string>
+    <string name="app_title">First android Aoo</string>
+    <string name="hint_edit">enter your name</string>
+    <string name="text_button">Say hello!</string>
+    <string name="text_empty_name">Empty name</string>
+    <string name="text_congratulation">Congrats</string>
+
+</resources>
