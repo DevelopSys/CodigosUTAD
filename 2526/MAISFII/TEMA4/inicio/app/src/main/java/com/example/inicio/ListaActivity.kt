@@ -74,3 +74,17 @@ class ListaActivity : AppCompatActivity() {
         adapterProduct = ProductAdapter(this)
     }
 }
+
+/*
+
+1. En la pantalla de la lista:
+    - Un spinner donde aparecen todas las categorias (cargadas por API)
+    - Al cambiar el spinner, se muestra la lista de productos de dicha categoria (filtro)
+    - Poner un contador del precio acumulado del carrito
+    - Poner un boton para completar la compra: al pulsarlo -> snackbar con el total de la compra
+    y vacia el carrito (local)
+
+2- En el item de la lista
+    - si pulso detella -> nueva activity con el detalle del producto (UI como quieras)
+    - si pulso el comprar -> dicho producto va al carrito (dataset) y actualiza el contador
+ */
