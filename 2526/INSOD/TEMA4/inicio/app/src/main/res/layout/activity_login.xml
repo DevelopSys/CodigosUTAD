@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LoginActivity">
+
+    <ImageView
+        android:id="@+id/imagenLogin"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/background"
+        app:layout_constraintBottom_toTopOf="@+id/guiaHorizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <EditText
+        android:id="@+id/editCorreo"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:drawableStart="@drawable/mail_icon"
+        android:drawablePadding="8dp"
+        android:gravity="center"
+        android:hint="introduce correo"
+        android:inputType="textEmailAddress"
+        app:layout_constraintEnd_toEndOf="@+id/imagenLogin"
+        app:layout_constraintStart_toStartOf="@+id/imagenLogin"
+        app:layout_constraintTop_toTopOf="@+id/guiaHorizontal" />
+
+    <EditText
+        android:id="@+id/editPass"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:drawableStart="@drawable/pass_icon"
+        android:drawablePadding="8dp"
+        android:gravity="center"
+        android:hint="introduce pass"
+        android:inputType="textPassword"
+        app:layout_constraintEnd_toEndOf="@+id/imagenLogin"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/imagenLogin"
+        app:layout_constraintTop_toBottomOf="@+id/editCorreo" />
+
+    <Spinner
+
+        android:id="@+id/spinnerPerfil"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="@+id/editPass"
+        app:layout_constraintStart_toStartOf="@+id/editPass"
+        app:layout_constraintTop_toBottomOf="@+id/editPass" />
+
+    <CheckBox
+        android:id="@+id/checkPass"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Recordar pass"
+        app:layout_constraintEnd_toEndOf="@+id/spinnerPerfil"
+        app:layout_constraintTop_toBottomOf="@+id/spinnerPerfil" />
+
+    <Button
+        android:id="@+id/botonLogin"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Login"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/guiaVertical"
+        app:layout_constraintStart_toStartOf="@+id/spinnerPerfil"
+        app:layout_constraintTop_toBottomOf="@+id/checkPass" />
+
+    <Button
+        android:id="@+id/botonRegistro"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Registro"
+        app:layout_constraintEnd_toEndOf="@+id/checkPass"
+        app:layout_constraintStart_toStartOf="@+id/guiaVertical"
+        app:layout_constraintTop_toTopOf="@+id/botonLogin" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guiaHorizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.5" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guiaVertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
