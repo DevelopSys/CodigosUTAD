@@ -1,5 +1,6 @@
 package com.example.inicioandroid
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import androidx.activity.enableEdgeToEdge
@@ -26,6 +27,12 @@ class MainActivity : AppCompatActivity() {
             } else {
                 Snackbar.make(binding.root, "Enhorabuena $nombre", Snackbar.LENGTH_LONG).show()
             }
+        }
+
+        binding.btnPasoPantalla.setOnClickListener{
+            val intent: Intent = Intent(applicationContext, SecondActivity::class.java)
+            intent.putExtra("dato","esto es el dato pasado")
+            startActivity(intent)
         }
     }
 }
