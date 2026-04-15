@@ -6,16 +6,19 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.navigation.fragment.findNavController
-import com.example.tiendafragments.R
 import com.example.tiendafragments.databinding.FragmentLoginBinding
+import com.example.tiendafragments.databinding.FragmentLregisterBinding
 
-class LoginFragment : Fragment() {
+class RegisterFragment : Fragment() {
 
-    private lateinit var binding: FragmentLoginBinding
+    private lateinit var binding: FragmentLregisterBinding
+    private lateinit var nombre: String
+    private lateinit var pass: String
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
+        nombre = requireArguments().getString("name").toString()
+        pass = requireArguments().getString("pass").toString()
     }
 
     override fun onCreateView(
@@ -23,18 +26,14 @@ class LoginFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentLoginBinding.inflate(inflater,container,false)
+        binding = FragmentLregisterBinding.inflate(inflater,container,false)
         return binding.root
     }
 
     override fun onStart() {
         super.onStart()
-        binding.btnRegistro.setOnClickListener {
-            val bundle = Bundle()
-            bundle.putString("name",binding.editCorreo.text.toString())
-            bundle.putString("pass",binding.editPass.text.toString())
-            findNavController().navigate(R.id.action_loginFragment_to_registerFragment, bundle)
-        }
+        binding.editCorreo.setText(nombre)
+        binding.editPass.setText(pass)
     }
 
     override fun onDetach() {
