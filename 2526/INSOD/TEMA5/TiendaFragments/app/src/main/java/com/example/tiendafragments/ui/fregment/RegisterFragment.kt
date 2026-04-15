@@ -6,15 +6,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.navigation.fragment.findNavController
-import com.example.tiendafragments.R
-
 import com.example.tiendafragments.databinding.FragmentLoginBinding
+import com.example.tiendafragments.databinding.FragmentRegisterBinding
 
 
-class LoginFragment : Fragment() {
+class RegisterFragment : Fragment() {
 
-    private lateinit var binding: FragmentLoginBinding
+    private lateinit var binding: FragmentRegisterBinding
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
@@ -27,16 +25,8 @@ class LoginFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // indica que vista se pone al fragment
-        binding = FragmentLoginBinding.inflate(inflater,container,false)
+        binding = FragmentRegisterBinding.inflate(inflater,container,false)
         return binding.root
-    }
-
-    override fun onStart() {
-        super.onStart()
-
-        binding.btnLogin.setOnClickListener {
-            findNavController().navigate(R.id.action_loginFragment2_to_registerFragment2)
-        }
     }
 
     override fun onDetach() {
