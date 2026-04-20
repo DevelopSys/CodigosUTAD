@@ -53,6 +53,7 @@ class LoginFragment : Fragment() {
                 .addOnCompleteListener {
                     if (it.isSuccessful) {
                         // navigate
+                        findNavController().navigate(R.id.action_loginFragment_to_mainFragment)
                     } else {
                         Snackbar.make(
                             binding.root,

@@ -6,6 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
+import com.example.tiendafragments.R
 import com.example.tiendafragments.databinding.FragmentRegisterBinding
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
@@ -51,7 +53,9 @@ class RegisterFragment : Fragment() {
                         Snackbar.make(binding.root,
                             "Registro correcto. Quieres iniciar sesion",
                             Snackbar.LENGTH_LONG)
-                            .setAction("OK"){ }
+                            .setAction("OK"){
+                                findNavController().navigate(R.id.action_registerFragment_to_mainFragment)
+                            }
                             .show()
                     } else {
                         Snackbar.make(binding.root,

@@ -13,15 +13,17 @@ import com.google.firebase.auth.FirebaseAuth
 
 class MainFragment : Fragment() {
 
-    private lateinit var auth: FirebaseAuth
+
     private lateinit var binding: FragmentMainBinding
-    private lateinit var name: String
-    private lateinit var pass: String
+    private lateinit var auth: FirebaseAuth
+    private lateinit var uid: String
+
+
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
-
-
+        auth = FirebaseAuth.getInstance()
+        uid = auth.currentUser!!.uid
     }
 
     override fun onCreateView(
@@ -33,9 +35,16 @@ class MainFragment : Fragment() {
         return binding.root
     }
 
+    override fun onStart() {
+        super.onStart()
+        binding.textMain.text = uid
+
+    }
+
 
     override fun onDetach() {
         super.onDetach()
+
     }
 
 }
