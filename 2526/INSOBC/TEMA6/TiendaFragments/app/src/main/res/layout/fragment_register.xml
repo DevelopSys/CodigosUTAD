@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:padding="24dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Registro"
+        android:layout_marginBottom="48dp"
+        android:gravity="center"
+        android:textSize="24sp"
+        />
+
+    <EditText
+        android:id="@+id/editCorreo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Por favor introduce correo"
+        android:gravity="center"
+        android:layout_marginBottom="24dp"
+        />
+
+
+    <EditText
+        android:id="@+id/editPass"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Por favor introduce pass"
+        android:gravity="center"
+        android:inputType="textPassword"
+        android:layout_marginBottom="24dp"
+        />
+
+    <EditText
+        android:id="@+id/editNombre"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Por favor introduce nombre"
+        android:gravity="center"
+        android:layout_marginBottom="24dp"
+        />
+    <EditText
+        android:id="@+id/editApellido"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Por favor introduce apellido"
+        android:gravity="center"
+        android:layout_marginBottom="48dp"
+        />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <Button
+            android:id="@+id/btnRegistro"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="Registro"
+            />
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "648927800381",
+    "project_id": "bmh-insobc2526",
+    "storage_bucket": "bmh-insobc2526.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:648927800381:android:014522325a68a2692a8e54",
+        "android_client_info": {
+          "package_name": "com.example.tiendafragments"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA9N2QO8JMX7nDh2BDz6HNw9wWQ1nGJKrs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
