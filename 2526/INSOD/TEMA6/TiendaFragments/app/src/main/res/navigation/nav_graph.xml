@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/loginFragment2">
+
+    <fragment
+        tools:layout="@layout/fragment_login"
+        android:id="@+id/loginFragment2"
+        android:name="com.example.tiendafragments.ui.fregment.LoginFragment"
+        android:label="LoginFragment" >
+        <action
+            android:id="@+id/action_loginFragment2_to_registerFragment2"
+            app:destination="@id/registerFragment" />
+        <action
+            android:id="@+id/action_loginFragment2_to_mainFragment"
+            app:destination="@id/mainFragment" />
+    </fragment>
+    <fragment
+        tools:layout="@layout/fragment_register"
+        android:id="@+id/registerFragment"
+        android:name="com.example.tiendafragments.ui.fregment.RegisterFragment"
+        android:label="RegisterFragment" >
+        <action
+            android:id="@+id/action_registerFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+    </fragment>
+    <fragment
+        tools:layout="@layout/fragment_main"
+        android:id="@+id/mainFragment"
+        android:name="com.example.tiendafragments.ui.fregment.MainFragment"
+        android:label="MainFragment" />
+</navigation>
