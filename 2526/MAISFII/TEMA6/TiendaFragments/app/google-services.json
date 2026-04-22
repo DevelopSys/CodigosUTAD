@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "712689730991",
+    "project_id": "bmh-mais2526",
+    "storage_bucket": "bmh-mais2526.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:712689730991:android:97a8fe9e8fdd22332ddb5a",
+        "android_client_info": {
+          "package_name": "com.example.tiendafragments"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCep_1ICF0fe9XtAD3NmpQ2TqHX6A_3zP0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
