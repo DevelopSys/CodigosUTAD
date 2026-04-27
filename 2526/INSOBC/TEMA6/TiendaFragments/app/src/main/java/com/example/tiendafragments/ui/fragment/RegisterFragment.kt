@@ -10,6 +10,7 @@ import androidx.navigation.fragment.findNavController
 import com.example.tiendafragments.R
 import com.example.tiendafragments.databinding.FragmentLoginBinding
 import com.example.tiendafragments.databinding.FragmentRegisterBinding
+import com.example.tiendafragments.model.User
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
@@ -29,6 +30,7 @@ class RegisterFragment : Fragment() {
             .getInstance("https://bmh-insobc2526-default-rtdb.europe-west1.firebasedatabase.app/")
         name = requireArguments().getString("name").toString()
         pass = requireArguments().getString("psas").toString()
+
 
     }
 
@@ -57,9 +59,25 @@ class RegisterFragment : Fragment() {
                 .addOnCompleteListener {
                     if (it.isSuccessful) {
 
+                        /*
+                        val referenciaUser = database.reference
+                            .child("users")
+                            .child(auth.currentUser!!.uid)
+
+                        referenciaUser
+                            .child("apellido").setValue(surname)
+
+                        referenciaUser
+                            .child("nombre").setValue(name)
+
+                        referenciaUser.child("correo").setValue(email)
+
+                        referenciaUser
+                            .child("pass").setValue(pass)*/
                         database.reference.child("users")
                             .child(auth.currentUser!!.uid)
-                            .child("name").setValue(name)
+                            .setValue(User(name,surname, email, pass,))
+
 
                         Snackbar.make(
                             binding.root,
