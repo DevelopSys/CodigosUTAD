@@ -10,6 +10,7 @@ import androidx.navigation.fragment.findNavController
 import com.example.tiendafragments.R
 import com.example.tiendafragments.databinding.FragmentLoginBinding
 import com.example.tiendafragments.databinding.FragmentRegisterBinding
+import com.example.tiendafragments.model.User
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
@@ -25,7 +26,11 @@ class RegisterFragment : Fragment() {
         super.onAttach(context)
         // inicializaciones logicas
         auth = FirebaseAuth.getInstance()
-        database = FirebaseDatabase.getInstance("https://bmh-insod2526-default-rtdb.europe-west1.firebasedatabase.app/")
+        database = FirebaseDatabase
+            .getInstance("https://bmh-insod2526-default-rtdb.europe-west1.firebasedatabase.app/")
+
+        database.reference.child("nombreAPP").setValue(null)
+
     }
 
     override fun onCreateView(
@@ -47,6 +52,31 @@ class RegisterFragment : Fragment() {
                 binding.editPass.text.toString()
             ).addOnCompleteListener {
                 if (it.isSuccessful) {
+
+                    val referenciaUser = database.reference.child("users")
+                    referenciaUser
+                        .child(auth.currentUser!!.uid)
+                        .setValue(
+                        User(
+                            binding.editNombre.text.toString(),
+                            binding.editApellido.text.toString(),
+                            binding.editCorreo.text.toString(),
+                            binding.editPass.text.toString()
+                        )
+                    )
+
+                    /*referenciaUser
+                        .child("nombre").setValue(binding.editNombre.text.toString())
+
+                    referenciaUser
+                        .child("apellido").setValue(binding.editApellido.text.toString())
+
+                    referenciaUser
+                        .child("correo").setValue(binding.editCorreo.text.toString())
+
+                    referenciaUser
+                        .child("pass").setValue(binding.editPass.text.toString())*/
+
                     Snackbar.make(
                         binding.root,
                         "Registro correcto. Quieres iniciar sesion?",
