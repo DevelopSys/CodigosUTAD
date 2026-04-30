@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "867921453799",
+    "project_id": "bmh-insonline2526",
+    "storage_bucket": "bmh-insonline2526.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:867921453799:android:e2aec0e926aee200387842",
+        "android_client_info": {
+          "package_name": "com.example.fragmentsfp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDQUFRMYN_ZBNbyP4AAYwTH4Y6IrK8I-54"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
