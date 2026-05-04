@@ -1,7 +1,31 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 
 void main() {
   runApp(const MyApp());
+  var nombre = "Borja"; // dynamic
+  String apellido = "asd";
+  late Int edad;
+  /*final String dni ="1123123";
+  const String altura ="1123123";
+  dni = "123123";
+  altura = "123123";*/
+  ejemplo(dato: 5);
+}
+
+void ejemplo({required var dato}) {
+  print("Ejemplo de llamado de funcion");
+}
+
+class Persona {
+  final String nombre;
+  final String apellido;
+  String? correo;
+
+  Persona(this.nombre, this.apellido);
+
+  Persona.nombre(this.nombre, this.apellido);
 }
 
 class MyApp extends StatelessWidget {
