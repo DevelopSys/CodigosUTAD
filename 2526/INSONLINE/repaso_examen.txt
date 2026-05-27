@@ -1,0 +1,75 @@
+Android introduccion
+	kotlin
+		var val lateinit
+		NullSafety
+		parametros nominales y posiciones
+	android
+		estructura del proyecto: kt parte logica , xml parte de recursos: layouts, menus, string, value
+			AndroidManifest: activities y permisos
+		xml + kt : Activity
+			binding: asociacion y acceso a los id
+			ciclo: onCreate, onDetroy
+			listener: metodos que permite asociar eventos a view
+				si el listener solo sobreescrive un metodo se puede definir directamente con setOnClickListener {  } -> si hay un solo parametro se puede llamar it
+				onItemSelectedListener = object: OnItemSelecterListener { override  }
+			parte grafica + logica: adapters
+			menus -> xml <item title id> -> kt onCreateOptionMenu onOptionItemSelected
+
+
+Android avanzado
+	Toolbar / actionBar -> 
+	Dialog -> popup -> DialogFragment
+	Fragments -> onAttach -> onCreateView -> onDetach
+	Volley -> API Volley.Response {} Volley.Error {}
+	BD
+		SQLite -> base de datos interna + Room
+		API -> 
+		Firebase -> Caja negra -> Firebase Auth / Firebase DB (NoSQL) / Storage
+
+Flutter
+	Desarrollo cross -> IOs Android Desktop
+	Dart -> dynamic (var) Tipadas Null late
+		nominales en metodos si se indica {}, sino posicionales
+	Widgets -> son cualquier cosa dentro de la app
+		una pantalla
+		un boton
+			el texto de un boton
+		una columna
+			una parte de la columna
+			un espaciado para los elementos de las columnas
+		Stateles -> solo renderiza no guarda datos. Declarar y utilizar variables {}
+			@build -> retorna el widget a renderizar
+		Stateful -> renderiza y guarda datos. Declarar, utilizar variables {} y puedo cambiar su valor mediante un metodo especial llamado setState
+			class ex Stateful
+				@createState -> retornar State
+			class ex State
+				en cualquier momento puedo utilizar el metodo setState
+				@build -> retorna el widget a renderizar
+
+Examen
+	40 preguntas tipo test -> preguntas "puente"
+
+		si quieres definir una variable en kotlin para que se no pueda modificar su valor será de tipo
+			a var
+			b val
+			c final
+			d const
+
+		en dart, si tengo un metodo con la siguiente firma, cual es su uso correcto. metodo(String p1, {var p2, int? p3=null, int p4 =4})
+			a metodo(p1: "asd",p2:"asd",p3:6,8)
+			b metodo("asd",p2:"asd",p3:6,8)
+			c metodo("asd",p2:"asd",8)
+			d metodo("asd",p2:"asd",p4:8)
+
+		Cual es el metodo del ciclo de vida que permite asociar parte grafica y logica
+			onStart
+			onCreate
+			onResume
+			onAsign
+
+		Un fragment es:
+			Un elemento que se debe definir en el AndroidManifest
+			Un elemento que siempre está visitble en la pantalla
+			Un elemento que puede aparecer y desaparecer a peticion de usuarios
+			Todas las anteriores
+
